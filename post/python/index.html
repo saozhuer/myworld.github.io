@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="saozhuer">
+    
+    
+    
+    
+    
+    
+    <title>Python | saozhuerのblog</title>
+    <link href="”http://yoursite.com“" rel="”prefetch”">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'http://i2.hdslb.com/bfs/archive/93baeb7e96a1027d01760f65f8766dfc75be9b33.jpg,http://i2.hdslb.com/bfs/archive/93baeb7e96a1027d01760f65f8766dfc75be9b33.jpg,http://p2.gexing.com/G1/M00/2F/0F/rBACE1K3BueTXtJ_AAdIK1QSm60378.jpg,http://p2.gexing.com/G1/M00/2F/0F/rBACE1K3BueTXtJ_AAdIK1QSm60378.jpg,http://p2.gexing.com/G1/M00/2F/0F/rBACE1K3BueTXtJ_AAdIK1QSm60378.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head></html>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="http://yoursite.com" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://yoursite.com">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">saozhuerのblog</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/categories">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                </li>
+                
+                
+                
+                
+                
+                <li class="">
+                    <a href="/tags">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://yoursite.com">saozhuerのblog</a>
+        >
+        <span>Python</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/post/python/">Python</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-12-19
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/post/python/">Python</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-12-19
+            </p>
+            <p>
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>#基本语法</p>
+<p>#一，快捷键<br>补充的新的</p>
+<blockquote>
+<p>ctrl+/ 添加或取消一行注释<br>ctrl+n 新建<br>ctrl+f 搜索<br>ctrl+r 搜索+替换<br>ctrl+z 撤销<br>ctrl+shift+z 反撤销<br>TAB 补充代码</p>
+</blockquote>
+<hr>
+<a id="more"></a>
+<p>#二，注释</p>
+<ul>
+<li>注释:是程序中专门用来注释说明文字。不参与程序编译和执行。对程序的功能没有任何影响</li>
+<li>单行注释：在说明性文字前加#</li>
+<li>使用三个单或双引号阔起来了，设置多行注释<br>例：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">多行</span></span><br><span class="line"><span class="string">注释</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>#三，标识符</p>
+<ul>
+<li>标识符就是用来命名的，给变量、函数、类命名。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="number">10</span></span><br><span class="line">print(num)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>#四，行与缩进</p>
+<ul>
+<li>python中对代码里面的所有有严格要求。同级代码前的缩进（空格/tab）的个数必须一致</li>
+<li>行的规范：要求声明函数和类的前后需要有两个空行<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'hello world'</span>)  <span class="comment"># IndentationError</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>#五，分段(行)显示</p>
+<ul>
+<li>一句代码很长，需要多行来显示的时候，可以在需要换行的位置加\</li>
+</ul>
+<p>注意：加\的时候不能将一个数据，一个变量名给拆开<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="number">2837487</span> + <span class="number">34398748</span> + <span class="number">384798578</span> +\</span><br><span class="line">      <span class="number">37847578</span> + <span class="number">347895789</span> + <span class="number">457279</span> + \</span><br><span class="line">      <span class="number">345234757</span> + <span class="number">3549087</span> + <span class="number">3457078</span></span><br></pre></td></tr></table></figure></p>
+<p>如果代码是列表、元祖、字典、集合的字面量，可以直接换行，不用加\<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list1 = [</span><br><span class="line">    <span class="number">12</span>,</span><br><span class="line">    <span class="number">23</span>,</span><br><span class="line">    <span class="number">4543</span>,</span><br><span class="line">    <span class="string">'ahgshgd'</span>,</span><br><span class="line">    <span class="string">'sjhfjkh'</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>#六，一行显示多条语句</p>
+<ul>
+<li>一行显示一条语句的时候，后面不用加分号。但是如果希望在一行显示多条语句，那么多条语句之间必须加分号<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'aaa'</span>);print(<span class="string">'bbb'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>#七，关键字(保留字)</p>
+<ul>
+<li>python中已经定义好的有特殊的功能或者特殊的意义的一些标识符，就是python的关键字。<br>命名的时候不能使用关键字<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> keyword   <span class="comment"># 导入keyword模块</span></span><br><span class="line">print(keyword.kwlist)  <span class="comment"># 打印python中所有的关键字</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>关键字：</p>
+<blockquote>
+<p>‘False’, ‘None’, ‘True’, ‘and’, ‘as’, ‘assert’, ‘break’, ‘class’,<br>‘continue’, ‘def’, ‘del’, ‘elif’, ‘else’, ‘except’, ‘finally’, ‘for’,<br>‘from’, ‘global’, ‘if’, ‘import’, ‘in’, ‘is’, ‘lambda’, ‘nonlocal’,<br>‘not’, ‘or’, ‘pass’, ‘raise’, ‘return’, ‘try’, ‘while’, ‘with’, ‘yield’</p>
+</blockquote>
+<hr>
+<p>#八，print函数和input函数</p>
+<p>####print(内容) - 在控制台中打印内容(内容必须是python数据)<br>print(内容1, 内容2, …, 内容n) - 在一行打印多个内容，在控制台显示的时候多个内容之间用空格隔开<br>默认情况下，一个print中的内容占一行（以换行结束）。一个print中的多个内容用空格隔开</p>
+<p>print(内容,内容1，…,内容n, end=’换行标志’)<br>print(内容,内容1，…,内容n, sep=’分割标志’)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'打印1'</span>)</span><br><span class="line">print(<span class="number">100</span>)</span><br><span class="line">print(<span class="string">'abc'</span>, <span class="string">'bcd'</span>, <span class="number">200</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'打印1'</span>, end=<span class="string">'=='</span>)</span><br><span class="line">print(<span class="number">100</span>)</span><br><span class="line">print(<span class="string">'abc'</span>, <span class="string">'bcd'</span>, <span class="number">200</span>, sep=<span class="string">'@'</span>)</span><br><span class="line">print(<span class="string">'abc'</span>, <span class="string">'bcd'</span>, <span class="number">200</span>, sep=<span class="string">''</span>)</span><br></pre></td></tr></table></figure></p>
+<p>结果如下</p>
+<blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/14827759-31c36a7c6b14b9b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</blockquote>
+<p>####input() - 从控制台输入一串内容，以回车结束。并且将内容返回(以字符串的形式返回)<br>input(‘提示信息’)<br>注意：程序执行到input的时候，程序会停下来，直到输入完成为止<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(input(<span class="string">'请输入:'</span>))</span><br></pre></td></tr></table></figure></p>
+<p>结果如下</p>
+<blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/14827759-dae3f71d5a5d23e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</blockquote>
+<hr>
+<p>#常用数据类型</p>
+<ul>
+<li>python中常用的数据类型有：整型、浮点型、布尔、字符串、列表、字典、元祖、集合、函数等….<br>###1.常见数据类型的字面量(常量)<blockquote>
+<p>整型: 100, 23, -129  – 所有的整数<br>浮点型: 12.3, 45.0, -0.1123  – 所有的小数<br>布尔: True, False  – 只有两个值<br>字符串: ‘abc’, “ahjs”, ‘348sj’, “上的+-“  – 由双引号或者单引号括起来的内容<br>列表: [12, ‘abc’, True]<br>元祖：(23, 89, ‘asd’)<br>字典:{‘ab’: 120, 18:’abc’}</p>
+</blockquote>
+###2.数字相关类型</li>
+<li>python中和数字相关的类型：整型、浮点型、布尔、复数(虚数)<br>####a.整型(int):整数对应的类型，包含了所有的整数。<br>python3.x中整数对应的类型只有一个：int<br> python2.x中整数对应的类型有:int和long<br>python中的整数，除了可以用十进制表示，还可以用二进制、八进制和十六进制进行表示<br>####b.浮点型(float): 小数对应的类型，包含了所有小数。<br>支持科学计数法<br>例<blockquote>
+<p>12.90<br>-12.03<br>2e4   # 20000.0</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="number">2e4</span>)</span><br><span class="line">print(<span class="number">3e-2</span>)</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<p>####c.布尔(bool): 只有True和False， 其中True表示真,False表示假。<br> True实质就是数字1，False实质是数字0<br>True和False都是关键字<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="keyword">True</span>, <span class="keyword">False</span>)</span><br><span class="line">print(<span class="number">1</span>+<span class="keyword">True</span>, <span class="number">1</span>+<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure></p>
+<p>结果如下</p>
+<blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/14827759-16f58dfbbeffe5fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</blockquote>
+<p>####d.复数(complex): 所有的虚数对应的类型<br>数字后面加j，来表示复数的虚部。实部就是普通数字<br>例如</p>
+<blockquote>
+<p>10+1j<br>20-9j<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print((10+1j)+(20-9j))</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>结果如下</p>
+<blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/14827759-4df016c89e18f40a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</blockquote>
+<p>###3.type函数</p>
+<ul>
+<li>type(数据) - 获取数据对应的类型<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(type(<span class="number">100</span>))</span><br><span class="line">print(type(<span class="number">10</span>+<span class="number">2j</span>))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>结果如下</p>
+<blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/14827759-a3490aedd7f0418a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</blockquote>
+<p>###4.isinstance函数</p>
+<ul>
+<li>isinstance(数据,类型) - 判断指定的数据是否是指定的类型，结果是布尔值<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">isinstance(<span class="number">100</span>, float)   <span class="comment"># 判断100是否是float类型</span></span><br><span class="line">print(isinstance(<span class="number">100</span>, float))   <span class="comment"># False</span></span><br><span class="line">print(isinstance(<span class="number">100</span>, int))     <span class="comment"># True</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>###5.类型的强制转换</p>
+<ul>
+<li>类型名(数据) - 将指定数据转换成指定类型<blockquote>
+<p>整型转成浮点型: 在整数的后面加.0    float()<br>浮点型转换成整型: 只保留小数点前面的整数部分    int()<br>其他类型转布尔: 0转换成False,其他的转换成True   bool()</p>
+</blockquote>
+</li>
+</ul>
+<p>注意：复数不能转换成整型和浮点型，可以转换成布尔类型（不管什么数据都可以转换成布尔）<br>例<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(float(<span class="keyword">False</span>))</span><br><span class="line">print(int(<span class="keyword">False</span>))</span><br><span class="line">print(bool(<span class="number">10</span>+<span class="number">10j</span>))</span><br></pre></td></tr></table></figure></p>
+<p>结果如下</p>
+<blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/14827759-bbc2cac052ac9882.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</blockquote>
+<hr>
+<p>#进制</p>
+<p>##1.十进制</p>
+<blockquote>
+<p>基数：0，1，2，3，4，5，6，7，8，9<br>进位：逢10进1<br>位权：123 = 1x10^2 + 2x10^1 + 30x10^0  (10^n)<br>表示: 所有的数字都是10进制数（数字直接写）</p>
+</blockquote>
+<blockquote>
+<p>例<br>23<br>10<br>78</p>
+</blockquote>
+<p>##2.二进制</p>
+<blockquote>
+<p>基数: 0，1<br>进位: 逢2进1<br>位权: 1101(2) = 1x2^0 + 0x2^1 + 1x2^2 + 1x2^3 = 13  (2^n)<br>表示: 在二进制数前加前缀：0b或者0B</p>
+</blockquote>
+<blockquote>
+<p>例<br>0b10101<br>0B01010</p>
+</blockquote>
+<p>##3.八进制</p>
+<blockquote>
+<p>基数：0，1，2，3，4，5，6，7<br>进位：逢8进1<br>位权: 123(8) = 3x8^0 + 2x8^1 + 1x8^2 =  83   (8^n)<br>表示:在八进制数加前缀：0o或者0O</p>
+</blockquote>
+<blockquote>
+<p>例<br>0o12<br>0O67</p>
+</blockquote>
+<h2 id="4-十六进制"><a href="#4-十六进制" class="headerlink" title="4.十六进制"></a>4.十六进制</h2><blockquote>
+<p>基数:0，1，2，3，4，5，6，7，8，9，a(10)，b(11)，c(12)，d(13)，e(14)，f(15)(字母大写和小写都可以)<br>进位：逢16进1<br>位权: 123(16) = 3x16^0 + 2x16^1 + 1x16^2  (16^n)<br>表示: 在十六进制数的前面加前缀：0x或者0X</p>
+</blockquote>
+<blockquote>
+<p>例<br>0x12a<br>0Xffee<br>0X1023</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="number">0x1010</span></span><br><span class="line">print(num)</span><br></pre></td></tr></table></figure>
+<p>结果如下</p>
+<blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/14827759-e2149ca4f4022d94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</blockquote>
+<p>##5.其他进制和十进制之间的转换</p>
+<ul>
+<li><p>其他进制转十进制：每一位上的数*权值，然后再求和</p>
+<blockquote>
+<p>110(2) = 1x2^1 + 1x2^2 = 6(10)<br>110(8) = 1x8^1 + 1x8^2 = 72(10)<br>110(16) = 1x16^1 + 1x16^2 = 272(10)</p>
+</blockquote>
+</li>
+<li><p>将十进制转换成其他进制</p>
+<blockquote>
+<p>100(10) = 1100100(2)<br>100(10) = 144(8)<br>100(10) = 64(16)<br>79(10) = 1001111(2)<br>79(10) = 117(8)<br>79(10) = 4f(16)</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="6-二进制和八进制十六进制的相互转换"><a href="#6-二进制和八进制十六进制的相互转换" class="headerlink" title="6. 二进制和八进制十六进制的相互转换"></a>6. 二进制和八进制十六进制的相互转换</h2><ul>
+<li><p>二进制转八进制：每3位的二进制转换成1位的八进制</p>
+<blockquote>
+<p>001 100 100 110 010 011 100(2) = 1446234(8)</p>
+</blockquote>
+</li>
+<li><p>八进制转二进制：每1位8进制，转换成3位的二进制</p>
+<blockquote>
+<p>6745(8) = 110 111 100 101(2)</p>
+</blockquote>
+</li>
+<li><p>二进制转十六进制：每4位的二进制转换成1位的十六进制</p>
+<blockquote>
+<p>0110 0100 1100 1001 1100(2) = 64c9c(16)</p>
+</blockquote>
+</li>
+<li><p>十六进制转二进制：每1位16进制，转换成4位的二进制</p>
+<blockquote>
+<p>6745(16) = 0110 0111 0100 0101(2)<br>a12(16) = 1010 0001 0010(2)</p>
+</blockquote>
+</li>
+</ul>
+<p>##7.进制转换相应的函数 - 返回值是字符串</p>
+<ul>
+<li>bin(数字)  - 将数字转换成2进制<br>例<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(bin(<span class="number">100</span>))</span><br><span class="line">print(bin(<span class="number">0x6745</span>))</span><br><span class="line">print(bin(<span class="number">0o76</span>))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>结果如下</p>
+<blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/14827759-925225791c83f425.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</blockquote>
+<ul>
+<li>oct(数字) - 将数字转换成8进制<br>例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(oct(100))</span><br><span class="line">print(oct(0x1af))</span><br><span class="line">print(oct(0b110001101))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>结果如下</p>
+<blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/14827759-ee0a17c42072233e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</blockquote>
+<ul>
+<li>hex(数字) - 将数字转换成16进制<br>例<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(hex(<span class="number">100</span>))</span><br><span class="line">print(hex(<span class="number">0o67</span>))</span><br><span class="line">print(hex(<span class="number">0b11011101110</span>))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>结果如下</p>
+<blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/14827759-485aef130b1f6181.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</blockquote>
+<ul>
+<li>所有进制最后会自动转换成10进制<br>例<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="number">0xaf</span></span><br><span class="line">print(num)</span><br><span class="line"></span><br><span class="line">print(<span class="number">0b111</span> + <span class="number">0b110</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>结果如下</p>
+<blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/14827759-a2f5dfbc409b6f54.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</blockquote>
+<hr>
+<p>#原码，反码和补码</p>
+<p>##1.计算机数据的存储</p>
+<ul>
+<li>计算机能够直接存储的是数字，并且存的数字的补码</li>
+</ul>
+<p>##2.计算机内存大小单位</p>
+<blockquote>
+<p>位(bit)<br>1字节 = 8位<br>1KB = 1024字节<br>1MB = 1024KB<br>1GB = 1024MB<br>1TB = 1024GB</p>
+</blockquote>
+<p>##3.原码：符号位+真值 （用最高位表示符号位，后面的其他为表示数字的二进制）</p>
+<ul>
+<li>符号位： 0 -&gt; 正, 1 -&gt; 负数<ul>
+<li>真值 ：数字对应的二进制值<blockquote>
+<p>10(原码) = 00001010<br>-10(原码) = 10001010</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p>##4.反码：<br>正数的反码和原码一样。负数的反码是符号位不变，其他位上的数取反(0变成1，1变成0)<br>10(反码) = 00001010<br>-10(反码) = 11110101</p>
+<p>5.补码：</p>
+<ul>
+<li>正数的补码和原码一样。负数的补码就是反码加1<blockquote>
+<p>10(补码) = 00001010<br>-10(补码) = 11110110</p>
+</blockquote>
+</li>
+</ul>
+<p>注意：数据存储和运算的时候采用的是补码。看结果看的是原码</p>
+<blockquote>
+<p>例如：<br>如果计算机存储的是原码：<br>3：0011<br>2：0010<br>3+2 = 0101 = 5</p>
+</blockquote>
+<blockquote>
+<p>3-2 = 3+(-2) = 1101 = -5<br>3: 0011<br>-2:1010</p>
+</blockquote>
+<blockquote>
+<p>补码：<br>3(补) = 0011<br>-2(补) = 1101(反) = 1110(补)<br>0011(补)+1110(补) = 0001(补) = 0001(原) = 1</p>
+</blockquote>
+<blockquote>
+<p>2-3<br>2：0010（原）= 0010（补）<br>-3：1011（原） = 1100（反）= 1101（补码）<br>0010（补）+ 1101（补码） = 1111（补码）= 1110（反） = 1001 = -1</p>
+</blockquote>
+<hr>
+
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = 'Python'
+    }
+</script>
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get" action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            saozhuer
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140" alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/post/python/">Python</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/post/Nginx服务器安装/">Nginx服务器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/post/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/post/Nginx服务器安装/">Nginx服务器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/post/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/post/python/">Python</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+                <li class="">
+                    <a href="/post/python/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                <li class="">
+                    <a href="/post/python/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                <li class="">
+                    <a href="/post/python/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+</div>
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 saozhuer Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
+
+
+
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Wed Dec 19 2018 20:38:55 GMT+0800'
+      window.commentConfig.owner = 'saozhuer'
+      window.commentConfig.repo = 'saozhuer/saozhuer.github.io'
+      window.commentConfig.client_id = 'CE5ee354173480e8abf8'
+      window.commentConfig.client_secret = 'b 0272d4f37a97db12e337d2412fdb517083d34e6'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Wed Dec 19 2018 20:38:55 GMT+0800',
+        owner: 'saozhuer',
+        repo: 'saozhuer/saozhuer.github.io',
+        client_id: 'CE5ee354173480e8abf8',
+        client_secret: 'b 0272d4f37a97db12e337d2412fdb517083d34e6',
+        redirect_uri: ''
+      }
+    }
+</script>
+<script src="/js/comment/gitment.js"></script>
+
+</html>
+<script type="text/javascript" src="/js/click.js"></script>
