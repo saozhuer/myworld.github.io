@@ -10,7 +10,7 @@
     
     
     
-    <title>search | saozhuerのblog</title>
+    <title>saozhuerのblog</title>
     <link href="”http://yoursite.com“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -154,183 +154,139 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://yoursite.com">saozhuerのblog</a>
+        >
+        <span></span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/post/数据库/"></a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-12-24
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/post/数据库/"></a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-12-24
+            </p>
+            <p>
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <hr>
+<p>title：数据库<br>tags：</p>
+<ul>
+<li>数据库介绍</li>
+<li>MySQL语法</li>
+</ul>
+<hr>
+<p>数据库 - 实现项目中的数据持久化</p>
+<p>数据库的类别<br>关系型数据库 - MySQL<br>特点：<br>1.理论基础：集合论和关系代数；<br>2.用二维表来组织数据（行（记录），列（字段））；<br>3.SQL - 结构化查询语言<br><a id="more"></a><br>关系型数据库产品：<br>1.Oracle - 甲骨文<br>2.MySQL - 甲骨文 - MariaDB（开源）<br>3.DB2、SQLserver、PostgreSQL、SQLite</p>
+<p>NoSQL数据库 - Redis<br>1.MongoDB - 文档数据库 - 适合量大但价值低的数据<br>2.Redis - KV数据库 - 性能好，适合做高速缓存服务<br>3.ElasticSearch - 搜索引擎</p>
+<ul>
+<li>Linux安装软件<br>1.包管理工具 - yum/ rpm</li>
+</ul>
+<p>Docker - 提供虚拟化服务，创建虚拟化容器并安装软件<br>    安装命令：yum -y install docker-io<br>    删除命令：yum -y remove docker-io<br>    查看信息：yum info<br>    查询：yum search<br>    查看是否安装：yum list installed | grep docker</p>
+<p>启动Docker服务<br>    开启命令：systemctl start docker<br>    关闭：systemctl stop docker<br>    重启：systemctl restart docker<br>    查看状态：systemctl status docker<br>    开机自启：systemctl enable docker<br>    禁用开机自启：systemctl disable docker</p>
+<p>使用Docker命令<br>-1. 查看已经下载的镜像文件（安装包）：<br>    docker images<br>2.下载MySQL的镜像文件：<br>    docker pull mysql：5.7</p>
+<p>MySQL数据库超级管理员账号 - root<br>Oracle数据库超级管理员账号 - sys<br>SQLServer数据库超级管理员账号 - sa</p>
+<p>3.创建并允许容器</p>
+<pre><code>docker run -d -p 3306:3306 --name mysql57 -e MYSQL_ROOT_PASSWORD=123456 mysql:5.7
+</code></pre><p>4.查看运行中的容器<br>    docker ps<br>安装MySQ客户端工具：<br>Navicat for MySQL -猫<br>SQLyog - 海豚<br>Toad for MySQL - 蛤蟆</p>
+<p>5.查看所有的容器<br>    docker container ls -a<br>6.启动<br>    docker start mysql57<br>7.停止<br>    docker stop mysql57<br>8.删除容器<br>    docker rm -f mysql57</p>
+<p>#MySQL语法<br>      – SQL(结构化查询语言)分为三组<br>      – 1.DDL （数据定义语言）：create（创建） / drop（删除） /alter（修改）<br>      – 2.DML（数据操作语言）“insert（插入）/ delete（删除）/update（更新）/select（查询数据）<br>      – 3.DCL（数据控制语言）：grant(授权)/ revoke() /commit() / rollback()</p>
+<pre><code>  -- 创建数据库srs（学生选课系统）
+  CREATE DATABASE srs DEFAULT charset utf8;
+  -- 切换到srs数据库
+  use srs;
 
-<!-- search自定义页面 -->
-<script type="text/javascript">
+  -- 创建二维表来承载数据
+  -- 创建学生表tb_student
+  -- 在学生表中学号可以唯一的标记一条学生记录
+  -- 我们通常称这样的列为主键列
+  CREATE TABLE tb_student
+  (
+  stuid INT NOT NULL COMMENT &apos;学号&apos;, -- 非空约束
+  stuname VARCHAR(10) NOT NULL  COMMENT &apos;姓名&apos;, -- 变长字符串最大长度10
+  stusex bit DEFAULT 1  COMMENT &apos;性别&apos;, -- 默认是1
+  stubirth date  COMMENT &apos;出生日期&apos;,
+  stuaddr VARCHAR(255)  COMMENT &apos;家庭住址&apos;,
+  PRIMARY KEY (stuid)
+  );
+  -- 修改学生表添加联系方式
+  ALTER TABLE tb_student add COLUMN stutel char(11);
+  -- 修改学生表删除联系方式
+  ALTER TABLE tb_student DROP COLUMN stutel;
 
-	var htmlEntityMap = {
-		'&': '&amp;',
-		'<': '&lt;',
-		'>': '&gt;',
-		'"': '&quot;',
-		'\'': '&#39;',
-		'/': '&#x2F;'
-	};
+  -- 向学生表插入数据
+  INSERT INTO tb_student VALUES (1001,&apos;小花&apos;,1,&apos;1999-9-9&apos;,&apos;四川成都&apos;);
+  INSERT INTO tb_student (stuid,stuname) VALUES
+  (1002,&apos;小猪&apos;);
 
-	// 参照hexo过滤html的方法(事实上感觉静态也没什么可以过滤的)
-	function escapeKey(str) {
-		if (typeof str !== 'string') throw new TypeError('str must be a string!');
+  INSERT INTO tb_student VALUES
+  (1003,&apos;小小&apos;,0,&apos;1998-2-2&apos;,null),
+  (1004,&apos;小邻&apos;,0,null,null),
+  (1005,&apos;小红&apos;,0,null,&apos;四川成都&apos;);
 
-		// http://stackoverflow.com/a/12034334
-		return str.replace(/[&<>"'\/]/g, function(a) {
-			return htmlEntityMap[a];
-		});
-	}
+-- 截断表 TRUNCATE TABLE tb_student; -- 删除表格数据
+delete from tb_student WHERE stuid=1002;
 
-	var query = decodeURIComponent(window.location.search).substring(1).split('&')
-    // 获取搜索关键词
-    var s = escapeKey(query[0].split('=')[1])
-    // 获取当前页数
-    var p = query.length > 1 ? query[1].split('=')[1] : 1
-    // 获取每页的页码数
-    var pageSize = '10'
-    var useLeancloud = ''
-    $.getJSON('/content.json', function (json) {
-      $('#search-breadcrumb').append(`搜索'${s}'的结果`)
-      var result = getArticles(s, 'posts', json).concat(getArticles(s, 'pages', json))
-      if (result.length === 0 || result.length <= (p - 1) * pageSize) {
-      	// TODO 显示404页面
-      } else {
-        displaySearchResult(result.slice((p - 1) * pageSize, p * pageSize))
-        displayPagination(result)
-      }
-    })
+-- 删除学号1003-1005之间的学生信息
+DELETE FROM tb_student WHERE stuid&gt;=1003 AND stuid&lt;=1005;
+DELETE FROM tb_student WHERE stuid IN (1003,1004,1005);
+DELETE FROM tb_student WHERE stuid BETWEEN 1003 AND 1005;
 
-    function getArticles(val, type, json) {
-      return json[type].filter((e) => {
-        return e.title.indexOf(val) !== -1 || e.text.indexOf(val) !== -1
-      })
+-- 更新学号为1002 和1004学生的生日
+UPDATE tb_student SET stubirth=&apos;1990-1-1&apos; WHERE stuid=1002 OR     stuid=1004;
+-- 更新学号1002的姓名，性别，住址
+UPDATE tb_student SET stuname=&apos;王小梅&apos;,stusex=0,stuaddr=&apos;重庆&apos;     WHERE stuid=1002;
+
+-- 更新住址为空值的添加住址
+-- 判断是否为空 is / is not
+UPDATE tb_student SET stuaddr=&apos;四川绵阳&apos; WHERE stuaddr is null;
+
+-- 查询
+-- 筛选
+SELECT * FROM tb_student;
+-- 加了where叫筛选
+SELECT * FROM tb_student WHERE stusex=0;
+-- 投影
+SELECT stuname,stubirth FROM tb_student WHERE stusex=1;
+</code></pre>
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = ''
     }
-
-    function displaySearchResult(result) {
-      var resultList = $('#article-list')
-      result.forEach(function (article) {
-      	var [month, day] = article.date.split('-')
-        ''
-        ''
-        var defaultPreview = 'http://p2.gexing.com/G1/M00/2F/0F/rBACE1K3BueTXtJ_AAdIK1QSm60378.jpg'
-        var preview = article.preview ? article.preview : defaultPreview
-        var path = '/' + article.path
-        resultList.append(`<div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-                                <div class="data-article hidden-xs">
-                                    <span class="month">${month}月</span>
-                                    <span class="day">${day}</span>
-                                </div>
-                                <section class="hidden-xs">
-                                    <div class="title-article">
-                                        <h1>
-                                            <a href="${path}">
-                                                <span>${article.title}</span>
-                                            </a>
-                                        </h1>
-                                    </div>
-                                    <div class="tag-article">
-                                        ${ useLeancloud ? '<span class="label label-gal"><i class="fa fa-eye"></i></span>' : ''}
-                                        <span class="label label-gal">
-                                            <i class="fa fa-comments"></i>
-                                            <a href="${path}#comments">739</a>
-                                        </span>
-                                    </div>
-                                    <div class="alert alert-gal article-body content-article">
-                                         <div class="item">
-                                            <a href="${path}">
-                                                <div class="img">
-                                                    <img src="${preview}" alt="${article.title}">
-                                                </div>
-                                                <div class="info">
-                                                    <p>${article.excerpt}</p>
-                                                </div>
-                                            </a>
-                                         </div>
-					                </div>
-					            </section>
-                           </div>`)
-      })
-      if (useLeancloud) {
-        var Counter = AV.Object.extend('Counter')
-        showPostsTime(Counter)
-      }
-    }
-
-    function displayPagination(result) {
-      var pgContainer = $('#gal-pagination')
-      var pg = $(pgContainer.find('.pagination-gal')[0])
-      if(result.length > 0) {
-        pgContainer.css('display', 'block')
-      }
-      var num = Math.ceil(result.length / pageSize)
-      var root = '/search'
-      var link = root + `/index.html?s=${s}`
-      if(p > 1) {
-      	pg.append(`<li class="prev"><a href="${link}&page=${p-1}">«</a></li>`)
-      }
-      if(p > 7) {
-      	pg.append(`<li><a href="${link}">1</a></li>
-                   <li><span>...</span></li>`)
-        for(var i = p - 3; i < p; i++) {
-          pg.append(`<li><a href="${link}&page=${i}">${i}</a></li>`)
-        }
-      } else {
-      	for(var j = 1; j < p; j++) {
-          pg.append(`<li><a href="${link}${j === 1 ? '' : `&page=${j}`}">${j}</a></li>`)
-        }
-      }
-      pg.append(`<li class="current"><span>${p}</span></li>`)
-      if(p + 7 < num) {
-      	for(var i = p + 1; i <= p + 3; i++) {
-          pg.append(`<li><a href="${link}&page=${i}">${i}</a></li>`)
-        }
-        pg.append(`<li><span>...</span></li>`)
-      } else {
-      	for(var j = p + 1; j <= num; j++) {
-          pg.append(`<li><a href="${link}&page=${j}">${j}</a></li>`)
-        }
-      }
-      if(p < num) {
-      	pg.append(`<li class="next"><a href="${link}&page=${p+1}">»</a></li>`)
-      }
-    }
-
-    // 很挫地定义了多一次, 到时再改了...
-    function showPostsTime(Counter) {
-      var entries = []
-      var excerpts = $('.article-excerpt')
-      excerpts.each(function () {
-        entries.push($(this).find('.title-article').first().find('a').attr('href').trim())
-      })
-      var query = new AV.Query(Counter)
-      query.containedIn('url', entries)
-      query.find().then(function (result) {
-        excerpts.each(function () {
-          var href = $(this).find('.title-article').first().find('a').attr('href').trim()
-          var r = result.filter(function (e) {
-            return e.get('url') === href
-          })
-          if(r.length > 0) {
-            $(this).find('i.fa-eye').each(function () {
-              $(this).after(' ' + r[0].get('time') + ' ℃')
-            })
-          } else {
-            $(this).find('i.fa-eye').each(function () {
-              $(this).after(' 0 ℃')
-            })
-          }
-        })
-      }).then(function (error) {
-        console.log('Error:' + error.code + ' ' + error.message)
-      })
-    }
-
 </script>
-<div class="breadcrumb breadcrumb-gal" id="search-breadcrumb">
-    <i class="fa fa-home"></i>
-</div>
-<div id="article-list"></div>
-<div id="gal-pagination" class="clearfix" style="display: none;">
-    <ul class="pagination pagination-gal pull-right"></ul>
-</div>
-<!-- 404页面 -->
 
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
@@ -445,13 +401,13 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/search/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/post/数据库/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/search/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/post/数据库/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/search/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/post/数据库/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
@@ -564,7 +520,7 @@
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Fri Dec 21 2018 11:52:01 GMT+0800'
+      window.commentConfig.id = 'Mon Dec 24 2018 20:29:06 GMT+0800'
       window.commentConfig.owner = 'saozhuer'
       window.commentConfig.repo = 'saozhuer/saozhuer.github.io'
       window.commentConfig.client_id = 'CE5ee354173480e8abf8'
@@ -572,7 +528,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Fri Dec 21 2018 11:52:01 GMT+0800',
+      	id: 'Mon Dec 24 2018 20:29:06 GMT+0800',
         owner: 'saozhuer',
         repo: 'saozhuer/saozhuer.github.io',
         client_id: 'CE5ee354173480e8abf8',
