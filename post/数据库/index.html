@@ -10,7 +10,7 @@
     
     
     
-    <title>saozhuerのblog</title>
+    <title>数据库 | saozhuerのblog</title>
     <link href="”http://yoursite.com“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -130,10 +130,25 @@
                 
                 
                 
-                <li class="">
-                    <a href="/tags">
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
                         <i class="fa fa-tags"></i>标签
                     </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/数据库介绍/">数据库介绍</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/MySQL语法/">MySQL语法</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
                 </li>
                 
                 
@@ -160,16 +175,25 @@
         <i class="fa fa-home"></i>
         <a href="http://yoursite.com">saozhuerのblog</a>
         >
-        <span></span>
+        <span>数据库</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/post/数据库/"></a>
+                <a href="/post/数据库/">数据库</a>
             </h1>
         </div>
         <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/数据库介绍/">数据库介绍</a>, 
+                
+                <a href="/tags/MySQL语法/">MySQL语法</a>
+                
+            </span>
             
             <span class="label label-gal">
                 <i class="fa fa-calendar"></i> 2018-12-24
@@ -182,7 +206,7 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/post/数据库/"></a>
+                    <a href="/post/数据库/">数据库</a>
                 </h4>
             </div>
             <p>
@@ -190,19 +214,19 @@
             </p>
             <p>
                 
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/数据库介绍/">数据库介绍</a>, 
+                
+                <a href="/tags/MySQL语法/">MySQL语法</a>
+                
+                
                 
             </p>
         </center>
     </div>
     <div class="content-article">
-        <hr>
-<p>title：数据库<br>tags：</p>
-<ul>
-<li>数据库介绍</li>
-<li>MySQL语法</li>
-</ul>
-<hr>
-<p>数据库 - 实现项目中的数据持久化</p>
+        <p>#数据库 - 实现项目中的数据持久化</p>
 <p>数据库的类别<br>关系型数据库 - MySQL<br>特点：<br>1.理论基础：集合论和关系代数；<br>2.用二维表来组织数据（行（记录），列（字段））；<br>3.SQL - 结构化查询语言<br><a id="more"></a><br>关系型数据库产品：<br>1.Oracle - 甲骨文<br>2.MySQL - 甲骨文 - MariaDB（开源）<br>3.DB2、SQLserver、PostgreSQL、SQLite</p>
 <p>NoSQL数据库 - Redis<br>1.MongoDB - 文档数据库 - 适合量大但价值低的数据<br>2.Redis - KV数据库 - 性能好，适合做高速缓存服务<br>3.ElasticSearch - 搜索引擎</p>
 <ul>
@@ -284,7 +308,7 @@ SELECT stuname,stubirth FROM tb_student WHERE stusex=1;
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = ''
+      window.commentConfig.title = '数据库'
     }
 </script>
 
@@ -330,7 +354,7 @@ SELECT stuname,stubirth FROM tb_student WHERE stusex=1;
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/post/数据库/"></a>
+                    <a href="/post/数据库/">数据库</a>
                 </span>
             </li>
             
@@ -370,7 +394,7 @@ SELECT stuname,stubirth FROM tb_student WHERE stusex=1;
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/post/数据库/"></a>
+                    <a href="/post/数据库/">数据库</a>
                 </span>
             </li>
             
@@ -412,6 +436,10 @@ SELECT stuname,stubirth FROM tb_student WHERE stusex=1;
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/数据库介绍/" style="font-size: 18.561725989525442px;" class="tag-cloud-link">数据库介绍</a>
+    
+    <a href="/tags/MySQL语法/" style="font-size: 19.17401496618365px;" class="tag-cloud-link">MySQL语法</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
@@ -520,7 +548,7 @@ SELECT stuname,stubirth FROM tb_student WHERE stusex=1;
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Mon Dec 24 2018 20:29:06 GMT+0800'
+      window.commentConfig.id = 'Mon Dec 24 2018 20:38:55 GMT+0800'
       window.commentConfig.owner = 'saozhuer'
       window.commentConfig.repo = 'saozhuer/saozhuer.github.io'
       window.commentConfig.client_id = 'CE5ee354173480e8abf8'
@@ -528,7 +556,7 @@ SELECT stuname,stubirth FROM tb_student WHERE stusex=1;
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Mon Dec 24 2018 20:29:06 GMT+0800',
+      	id: 'Mon Dec 24 2018 20:38:55 GMT+0800',
         owner: 'saozhuer',
         repo: 'saozhuer/saozhuer.github.io',
         client_id: 'CE5ee354173480e8abf8',
