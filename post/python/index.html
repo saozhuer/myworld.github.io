@@ -210,49 +210,42 @@
         </center>
     </div>
     <div class="content-article">
-        <p>#基本语法</p>
-<p>#一，快捷键<br>补充的新的</p>
+        <h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h1 id="一，快捷键"><a href="#一，快捷键" class="headerlink" title="一，快捷键"></a>一，快捷键</h1><p>补充的新的</p>
 <blockquote>
 <p>ctrl+/ 添加或取消一行注释<br>ctrl+n 新建<br>ctrl+f 搜索<br>ctrl+r 搜索+替换<br>ctrl+z 撤销<br>ctrl+shift+z 反撤销<br>TAB 补充代码</p>
 </blockquote>
 <hr>
 <a id="more"></a>
-<p>#二，注释</p>
-<ul>
+<h1 id="二，注释"><a href="#二，注释" class="headerlink" title="二，注释"></a>二，注释</h1><ul>
 <li>注释:是程序中专门用来注释说明文字。不参与程序编译和执行。对程序的功能没有任何影响</li>
 <li>单行注释：在说明性文字前加#</li>
 <li>使用三个单或双引号阔起来了，设置多行注释<br>例：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">多行</span></span><br><span class="line"><span class="string">注释</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<p>#三，标识符</p>
-<ul>
+<h1 id="三，标识符"><a href="#三，标识符" class="headerlink" title="三，标识符"></a>三，标识符</h1><ul>
 <li>标识符就是用来命名的，给变量、函数、类命名。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="number">10</span></span><br><span class="line">print(num)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<p>#四，行与缩进</p>
-<ul>
+<h1 id="四，行与缩进"><a href="#四，行与缩进" class="headerlink" title="四，行与缩进"></a>四，行与缩进</h1><ul>
 <li>python中对代码里面的所有有严格要求。同级代码前的缩进（空格/tab）的个数必须一致</li>
 <li>行的规范：要求声明函数和类的前后需要有两个空行<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'hello world'</span>)  <span class="comment"># IndentationError</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<p>#五，分段(行)显示</p>
-<ul>
+<h1 id="五，分段-行-显示"><a href="#五，分段-行-显示" class="headerlink" title="五，分段(行)显示"></a>五，分段(行)显示</h1><ul>
 <li>一句代码很长，需要多行来显示的时候，可以在需要换行的位置加\</li>
 </ul>
 <p>注意：加\的时候不能将一个数据，一个变量名给拆开<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="number">2837487</span> + <span class="number">34398748</span> + <span class="number">384798578</span> +\</span><br><span class="line">      <span class="number">37847578</span> + <span class="number">347895789</span> + <span class="number">457279</span> + \</span><br><span class="line">      <span class="number">345234757</span> + <span class="number">3549087</span> + <span class="number">3457078</span></span><br></pre></td></tr></table></figure></p>
 <p>如果代码是列表、元祖、字典、集合的字面量，可以直接换行，不用加\<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list1 = [</span><br><span class="line">    <span class="number">12</span>,</span><br><span class="line">    <span class="number">23</span>,</span><br><span class="line">    <span class="number">4543</span>,</span><br><span class="line">    <span class="string">'ahgshgd'</span>,</span><br><span class="line">    <span class="string">'sjhfjkh'</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
 <hr>
-<p>#六，一行显示多条语句</p>
-<ul>
+<h1 id="六，一行显示多条语句"><a href="#六，一行显示多条语句" class="headerlink" title="六，一行显示多条语句"></a>六，一行显示多条语句</h1><ul>
 <li>一行显示一条语句的时候，后面不用加分号。但是如果希望在一行显示多条语句，那么多条语句之间必须加分号<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'aaa'</span>);print(<span class="string">'bbb'</span>)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<p>#七，关键字(保留字)</p>
-<ul>
+<h1 id="七，关键字-保留字"><a href="#七，关键字-保留字" class="headerlink" title="七，关键字(保留字)"></a>七，关键字(保留字)</h1><ul>
 <li>python中已经定义好的有特殊的功能或者特殊的意义的一些标识符，就是python的关键字。<br>命名的时候不能使用关键字<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> keyword   <span class="comment"># 导入keyword模块</span></span><br><span class="line">print(keyword.kwlist)  <span class="comment"># 打印python中所有的关键字</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -261,37 +254,35 @@
 <p>‘False’, ‘None’, ‘True’, ‘and’, ‘as’, ‘assert’, ‘break’, ‘class’,<br>‘continue’, ‘def’, ‘del’, ‘elif’, ‘else’, ‘except’, ‘finally’, ‘for’,<br>‘from’, ‘global’, ‘if’, ‘import’, ‘in’, ‘is’, ‘lambda’, ‘nonlocal’,<br>‘not’, ‘or’, ‘pass’, ‘raise’, ‘return’, ‘try’, ‘while’, ‘with’, ‘yield’</p>
 </blockquote>
 <hr>
-<p>#八，print函数和input函数</p>
-<p>####print(内容) - 在控制台中打印内容(内容必须是python数据)<br>print(内容1, 内容2, …, 内容n) - 在一行打印多个内容，在控制台显示的时候多个内容之间用空格隔开<br>默认情况下，一个print中的内容占一行（以换行结束）。一个print中的多个内容用空格隔开</p>
+<h1 id="八，print函数和input函数"><a href="#八，print函数和input函数" class="headerlink" title="八，print函数和input函数"></a>八，print函数和input函数</h1><p>####print(内容) - 在控制台中打印内容(内容必须是python数据)<br>print(内容1, 内容2, …, 内容n) - 在一行打印多个内容，在控制台显示的时候多个内容之间用空格隔开<br>默认情况下，一个print中的内容占一行（以换行结束）。一个print中的多个内容用空格隔开</p>
 <p>print(内容,内容1，…,内容n, end=’换行标志’)<br>print(内容,内容1，…,内容n, sep=’分割标志’)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'打印1'</span>)</span><br><span class="line">print(<span class="number">100</span>)</span><br><span class="line">print(<span class="string">'abc'</span>, <span class="string">'bcd'</span>, <span class="number">200</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'打印1'</span>, end=<span class="string">'=='</span>)</span><br><span class="line">print(<span class="number">100</span>)</span><br><span class="line">print(<span class="string">'abc'</span>, <span class="string">'bcd'</span>, <span class="number">200</span>, sep=<span class="string">'@'</span>)</span><br><span class="line">print(<span class="string">'abc'</span>, <span class="string">'bcd'</span>, <span class="number">200</span>, sep=<span class="string">''</span>)</span><br></pre></td></tr></table></figure></p>
 <p>结果如下</p>
 <blockquote>
 <p><img src="https://upload-images.jianshu.io/upload_images/14827759-31c36a7c6b14b9b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 </blockquote>
-<p>####input() - 从控制台输入一串内容，以回车结束。并且将内容返回(以字符串的形式返回)<br>input(‘提示信息’)<br>注意：程序执行到input的时候，程序会停下来，直到输入完成为止<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(input(<span class="string">'请输入:'</span>))</span><br></pre></td></tr></table></figure></p>
+<h4 id="input-从控制台输入一串内容，以回车结束。并且将内容返回-以字符串的形式返回"><a href="#input-从控制台输入一串内容，以回车结束。并且将内容返回-以字符串的形式返回" class="headerlink" title="input() - 从控制台输入一串内容，以回车结束。并且将内容返回(以字符串的形式返回)"></a>input() - 从控制台输入一串内容，以回车结束。并且将内容返回(以字符串的形式返回)</h4><p>input(‘提示信息’)<br>注意：程序执行到input的时候，程序会停下来，直到输入完成为止<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(input(<span class="string">'请输入:'</span>))</span><br></pre></td></tr></table></figure></p>
 <p>结果如下</p>
 <blockquote>
 <p><img src="https://upload-images.jianshu.io/upload_images/14827759-dae3f71d5a5d23e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 </blockquote>
 <hr>
-<p>#常用数据类型</p>
-<ul>
-<li>python中常用的数据类型有：整型、浮点型、布尔、字符串、列表、字典、元祖、集合、函数等….<br>###1.常见数据类型的字面量(常量)<blockquote>
+<h1 id="常用数据类型"><a href="#常用数据类型" class="headerlink" title="常用数据类型"></a>常用数据类型</h1><ul>
+<li>python中常用的数据类型有：整型、浮点型、布尔、字符串、列表、字典、元祖、集合、函数等….<h3 id="1-常见数据类型的字面量-常量"><a href="#1-常见数据类型的字面量-常量" class="headerlink" title="1.常见数据类型的字面量(常量)"></a>1.常见数据类型的字面量(常量)</h3><blockquote>
 <p>整型: 100, 23, -129  – 所有的整数<br>浮点型: 12.3, 45.0, -0.1123  – 所有的小数<br>布尔: True, False  – 只有两个值<br>字符串: ‘abc’, “ahjs”, ‘348sj’, “上的+-“  – 由双引号或者单引号括起来的内容<br>列表: [12, ‘abc’, True]<br>元祖：(23, 89, ‘asd’)<br>字典:{‘ab’: 120, 18:’abc’}</p>
 </blockquote>
 ###2.数字相关类型</li>
-<li>python中和数字相关的类型：整型、浮点型、布尔、复数(虚数)<br>####a.整型(int):整数对应的类型，包含了所有的整数。<br>python3.x中整数对应的类型只有一个：int<br> python2.x中整数对应的类型有:int和long<br>python中的整数，除了可以用十进制表示，还可以用二进制、八进制和十六进制进行表示<br>####b.浮点型(float): 小数对应的类型，包含了所有小数。<br>支持科学计数法<br>例<blockquote>
+<li>python中和数字相关的类型：整型、浮点型、布尔、复数(虚数)<h4 id="a-整型-int-整数对应的类型，包含了所有的整数。"><a href="#a-整型-int-整数对应的类型，包含了所有的整数。" class="headerlink" title="a.整型(int):整数对应的类型，包含了所有的整数。"></a>a.整型(int):整数对应的类型，包含了所有的整数。</h4>python3.x中整数对应的类型只有一个：int<br> python2.x中整数对应的类型有:int和long<br>python中的整数，除了可以用十进制表示，还可以用二进制、八进制和十六进制进行表示<h4 id="b-浮点型-float-小数对应的类型，包含了所有小数。"><a href="#b-浮点型-float-小数对应的类型，包含了所有小数。" class="headerlink" title="b.浮点型(float): 小数对应的类型，包含了所有小数。"></a>b.浮点型(float): 小数对应的类型，包含了所有小数。</h4>支持科学计数法<br>例<blockquote>
 <p>12.90<br>-12.03<br>2e4   # 20000.0</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="number">2e4</span>)</span><br><span class="line">print(<span class="number">3e-2</span>)</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ul>
-<p>####c.布尔(bool): 只有True和False， 其中True表示真,False表示假。<br> True实质就是数字1，False实质是数字0<br>True和False都是关键字<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="keyword">True</span>, <span class="keyword">False</span>)</span><br><span class="line">print(<span class="number">1</span>+<span class="keyword">True</span>, <span class="number">1</span>+<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure></p>
+<h4 id="c-布尔-bool-只有True和False，-其中True表示真-False表示假。"><a href="#c-布尔-bool-只有True和False，-其中True表示真-False表示假。" class="headerlink" title="c.布尔(bool): 只有True和False， 其中True表示真,False表示假。"></a>c.布尔(bool): 只有True和False， 其中True表示真,False表示假。</h4><p> True实质就是数字1，False实质是数字0<br>True和False都是关键字<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="keyword">True</span>, <span class="keyword">False</span>)</span><br><span class="line">print(<span class="number">1</span>+<span class="keyword">True</span>, <span class="number">1</span>+<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure></p>
 <p>结果如下</p>
 <blockquote>
 <p><img src="https://upload-images.jianshu.io/upload_images/14827759-16f58dfbbeffe5fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 </blockquote>
-<p>####d.复数(complex): 所有的虚数对应的类型<br>数字后面加j，来表示复数的虚部。实部就是普通数字<br>例如</p>
+<h4 id="d-复数-complex-所有的虚数对应的类型"><a href="#d-复数-complex-所有的虚数对应的类型" class="headerlink" title="d.复数(complex): 所有的虚数对应的类型"></a>d.复数(complex): 所有的虚数对应的类型</h4><p>数字后面加j，来表示复数的虚部。实部就是普通数字<br>例如</p>
 <blockquote>
 <p>10+1j<br>20-9j<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print((10+1j)+(20-9j))</span><br></pre></td></tr></table></figure></p>
 </blockquote>
@@ -299,8 +290,7 @@
 <blockquote>
 <p><img src="https://upload-images.jianshu.io/upload_images/14827759-4df016c89e18f40a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 </blockquote>
-<p>###3.type函数</p>
-<ul>
+<h3 id="3-type函数"><a href="#3-type函数" class="headerlink" title="3.type函数"></a>3.type函数</h3><ul>
 <li>type(数据) - 获取数据对应的类型<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(type(<span class="number">100</span>))</span><br><span class="line">print(type(<span class="number">10</span>+<span class="number">2j</span>))</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -308,13 +298,11 @@
 <blockquote>
 <p><img src="https://upload-images.jianshu.io/upload_images/14827759-a3490aedd7f0418a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 </blockquote>
-<p>###4.isinstance函数</p>
-<ul>
+<h3 id="4-isinstance函数"><a href="#4-isinstance函数" class="headerlink" title="4.isinstance函数"></a>4.isinstance函数</h3><ul>
 <li>isinstance(数据,类型) - 判断指定的数据是否是指定的类型，结果是布尔值<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">isinstance(<span class="number">100</span>, float)   <span class="comment"># 判断100是否是float类型</span></span><br><span class="line">print(isinstance(<span class="number">100</span>, float))   <span class="comment"># False</span></span><br><span class="line">print(isinstance(<span class="number">100</span>, int))     <span class="comment"># True</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>###5.类型的强制转换</p>
-<ul>
+<h3 id="5-类型的强制转换"><a href="#5-类型的强制转换" class="headerlink" title="5.类型的强制转换"></a>5.类型的强制转换</h3><ul>
 <li>类型名(数据) - 将指定数据转换成指定类型<blockquote>
 <p>整型转成浮点型: 在整数的后面加.0    float()<br>浮点型转换成整型: 只保留小数点前面的整数部分    int()<br>其他类型转布尔: 0转换成False,其他的转换成True   bool()</p>
 </blockquote>
@@ -326,23 +314,19 @@
 <p><img src="https://upload-images.jianshu.io/upload_images/14827759-bbc2cac052ac9882.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 </blockquote>
 <hr>
-<p>#进制</p>
-<p>##1.十进制</p>
-<blockquote>
+<h1 id="进制"><a href="#进制" class="headerlink" title="进制"></a>进制</h1><h2 id="1-十进制"><a href="#1-十进制" class="headerlink" title="1.十进制"></a>1.十进制</h2><blockquote>
 <p>基数：0，1，2，3，4，5，6，7，8，9<br>进位：逢10进1<br>位权：123 = 1x10^2 + 2x10^1 + 30x10^0  (10^n)<br>表示: 所有的数字都是10进制数（数字直接写）</p>
 </blockquote>
 <blockquote>
 <p>例<br>23<br>10<br>78</p>
 </blockquote>
-<p>##2.二进制</p>
-<blockquote>
+<h2 id="2-二进制"><a href="#2-二进制" class="headerlink" title="2.二进制"></a>2.二进制</h2><blockquote>
 <p>基数: 0，1<br>进位: 逢2进1<br>位权: 1101(2) = 1x2^0 + 0x2^1 + 1x2^2 + 1x2^3 = 13  (2^n)<br>表示: 在二进制数前加前缀：0b或者0B</p>
 </blockquote>
 <blockquote>
 <p>例<br>0b10101<br>0B01010</p>
 </blockquote>
-<p>##3.八进制</p>
-<blockquote>
+<h2 id="3-八进制"><a href="#3-八进制" class="headerlink" title="3.八进制"></a>3.八进制</h2><blockquote>
 <p>基数：0，1，2，3，4，5，6，7<br>进位：逢8进1<br>位权: 123(8) = 3x8^0 + 2x8^1 + 1x8^2 =  83   (8^n)<br>表示:在八进制数加前缀：0o或者0O</p>
 </blockquote>
 <blockquote>
@@ -359,8 +343,7 @@
 <blockquote>
 <p><img src="https://upload-images.jianshu.io/upload_images/14827759-e2149ca4f4022d94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 </blockquote>
-<p>##5.其他进制和十进制之间的转换</p>
-<ul>
+<h2 id="5-其他进制和十进制之间的转换"><a href="#5-其他进制和十进制之间的转换" class="headerlink" title="5.其他进制和十进制之间的转换"></a>5.其他进制和十进制之间的转换</h2><ul>
 <li><p>其他进制转十进制：每一位上的数*权值，然后再求和</p>
 <blockquote>
 <p>110(2) = 1x2^1 + 1x2^2 = 6(10)<br>110(8) = 1x8^1 + 1x8^2 = 72(10)<br>110(16) = 1x16^1 + 1x16^2 = 272(10)</p>
@@ -394,8 +377,7 @@
 </blockquote>
 </li>
 </ul>
-<p>##7.进制转换相应的函数 - 返回值是字符串</p>
-<ul>
+<h2 id="7-进制转换相应的函数-返回值是字符串"><a href="#7-进制转换相应的函数-返回值是字符串" class="headerlink" title="7.进制转换相应的函数 - 返回值是字符串"></a>7.进制转换相应的函数 - 返回值是字符串</h2><ul>
 <li>bin(数字)  - 将数字转换成2进制<br>例<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(bin(<span class="number">100</span>))</span><br><span class="line">print(bin(<span class="number">0x6745</span>))</span><br><span class="line">print(bin(<span class="number">0o76</span>))</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -428,17 +410,13 @@
 <p><img src="https://upload-images.jianshu.io/upload_images/14827759-a2f5dfbc409b6f54.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 </blockquote>
 <hr>
-<p>#原码，反码和补码</p>
-<p>##1.计算机数据的存储</p>
-<ul>
+<h1 id="原码，反码和补码"><a href="#原码，反码和补码" class="headerlink" title="原码，反码和补码"></a>原码，反码和补码</h1><h2 id="1-计算机数据的存储"><a href="#1-计算机数据的存储" class="headerlink" title="1.计算机数据的存储"></a>1.计算机数据的存储</h2><ul>
 <li>计算机能够直接存储的是数字，并且存的数字的补码</li>
 </ul>
-<p>##2.计算机内存大小单位</p>
-<blockquote>
+<h2 id="2-计算机内存大小单位"><a href="#2-计算机内存大小单位" class="headerlink" title="2.计算机内存大小单位"></a>2.计算机内存大小单位</h2><blockquote>
 <p>位(bit)<br>1字节 = 8位<br>1KB = 1024字节<br>1MB = 1024KB<br>1GB = 1024MB<br>1TB = 1024GB</p>
 </blockquote>
-<p>##3.原码：符号位+真值 （用最高位表示符号位，后面的其他为表示数字的二进制）</p>
-<ul>
+<h2 id="3-原码：符号位-真值-（用最高位表示符号位，后面的其他为表示数字的二进制）"><a href="#3-原码：符号位-真值-（用最高位表示符号位，后面的其他为表示数字的二进制）" class="headerlink" title="3.原码：符号位+真值 （用最高位表示符号位，后面的其他为表示数字的二进制）"></a>3.原码：符号位+真值 （用最高位表示符号位，后面的其他为表示数字的二进制）</h2><ul>
 <li>符号位： 0 -&gt; 正, 1 -&gt; 负数<ul>
 <li>真值 ：数字对应的二进制值<blockquote>
 <p>10(原码) = 00001010<br>-10(原码) = 10001010</p>
@@ -447,7 +425,7 @@
 </ul>
 </li>
 </ul>
-<p>##4.反码：<br>正数的反码和原码一样。负数的反码是符号位不变，其他位上的数取反(0变成1，1变成0)<br>10(反码) = 00001010<br>-10(反码) = 11110101</p>
+<h2 id="4-反码："><a href="#4-反码：" class="headerlink" title="4.反码："></a>4.反码：</h2><p>正数的反码和原码一样。负数的反码是符号位不变，其他位上的数取反(0变成1，1变成0)<br>10(反码) = 00001010<br>-10(反码) = 11110101</p>
 <p>5.补码：</p>
 <ul>
 <li>正数的补码和原码一样。负数的补码就是反码加1<blockquote>
@@ -608,9 +586,9 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/数据库介绍/" style="font-size: 16.673209365077263px;" class="tag-cloud-link">数据库介绍</a>
+    <a href="/tags/数据库介绍/" style="font-size: 14.808856155300301px;" class="tag-cloud-link">数据库介绍</a>
     
-    <a href="/tags/MySQL语法/" style="font-size: 12.125073415307007px;" class="tag-cloud-link">MySQL语法</a>
+    <a href="/tags/MySQL语法/" style="font-size: 19.72560349763361px;" class="tag-cloud-link">MySQL语法</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">

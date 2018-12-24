@@ -226,78 +226,27 @@
         </center>
     </div>
     <div class="content-article">
-        <h1 id="数据库-实现项目中的数据持久化"><a href="#数据库-实现项目中的数据持久化" class="headerlink" title="数据库 - 实现项目中的数据持久化"></a>数据库 - 实现项目中的数据持久化</h1><p>数据库的类别<br>关系型数据库 - MySQL<br>特点：<br>1.理论基础：集合论和关系代数；<br>2.用二维表来组织数据（行（记录），列（字段））；<br>3.SQL - 结构化查询语言<br><a id="more"></a><br>关系型数据库产品：<br>1.Oracle - 甲骨文<br>2.MySQL - 甲骨文 - MariaDB（开源）<br>3.DB2、SQLserver、PostgreSQL、SQLite</p>
-<p>NoSQL数据库 - Redis<br>1.MongoDB - 文档数据库 - 适合量大但价值低的数据<br>2.Redis - KV数据库 - 性能好，适合做高速缓存服务<br>3.ElasticSearch - 搜索引擎</p>
+        <h1 id="数据库-实现项目中的数据持久化"><a href="#数据库-实现项目中的数据持久化" class="headerlink" title="数据库 - 实现项目中的数据持久化"></a>数据库 - 实现项目中的数据持久化</h1><h4 id="数据库的类别"><a href="#数据库的类别" class="headerlink" title="数据库的类别"></a>数据库的类别</h4><h4 id="1-关系型数据库-MySQL"><a href="#1-关系型数据库-MySQL" class="headerlink" title="1.关系型数据库 - MySQL"></a>1.关系型数据库 - MySQL</h4><ul>
+<li>特点：<br>1.理论基础：集合论和关系代数；<br>2.用二维表来组织数据（行（记录），列（字段））；<br>3.SQL - 结构化查询语言<a id="more"></a>
+<h6 id="关系型数据库产品："><a href="#关系型数据库产品：" class="headerlink" title="关系型数据库产品："></a>关系型数据库产品：</h6>1.Oracle - 甲骨文<br>2.MySQL - 甲骨文 - MariaDB（开源）<br>3.DB2、SQLserver、PostgreSQL、SQLite</li>
+</ul>
+<h4 id="2-NoSQL数据库-Redis"><a href="#2-NoSQL数据库-Redis" class="headerlink" title="2.NoSQL数据库 - Redis"></a>2.NoSQL数据库 - Redis</h4><p>1.MongoDB - 文档数据库 - 适合量大但价值低的数据<br>2.Redis - KV数据库 - 性能好，适合做高速缓存服务<br>3.ElasticSearch - 搜索引擎</p>
 <ul>
 <li>Linux安装软件<br>1.包管理工具 - yum/ rpm</li>
 </ul>
-<p>Docker - 提供虚拟化服务，创建虚拟化容器并安装软件<br>    安装命令：yum -y install docker-io<br>    删除命令：yum -y remove docker-io<br>    查看信息：yum info<br>    查询：yum search<br>    查看是否安装：yum list installed | grep docker</p>
-<p>启动Docker服务<br>    开启命令：systemctl start docker<br>    关闭：systemctl stop docker<br>    重启：systemctl restart docker<br>    查看状态：systemctl status docker<br>    开机自启：systemctl enable docker<br>    禁用开机自启：systemctl disable docker</p>
-<p>使用Docker命令<br>-1. 查看已经下载的镜像文件（安装包）：<br>    docker images<br>2.下载MySQL的镜像文件：<br>    docker pull mysql：5.7</p>
-<p>MySQL数据库超级管理员账号 - root<br>Oracle数据库超级管理员账号 - sys<br>SQLServer数据库超级管理员账号 - sa</p>
-<p>3.创建并允许容器</p>
-<pre><code>docker run -d -p 3306:3306 --name mysql57 -e MYSQL_ROOT_PASSWORD=123456 mysql:5.7
-</code></pre><p>4.查看运行中的容器<br>    docker ps<br>安装MySQ客户端工具：<br>Navicat for MySQL -猫<br>SQLyog - 海豚<br>Toad for MySQL - 蛤蟆</p>
-<p>5.查看所有的容器<br>    docker container ls -a<br>6.启动<br>    docker start mysql57<br>7.停止<br>    docker stop mysql57<br>8.删除容器<br>    docker rm -f mysql57</p>
-<p>#MySQL语法<br>      – SQL(结构化查询语言)分为三组<br>      – 1.DDL （数据定义语言）：create（创建） / drop（删除） /alter（修改）<br>      – 2.DML（数据操作语言）“insert（插入）/ delete（删除）/update（更新）/select（查询数据）<br>      – 3.DCL（数据控制语言）：grant(授权)/ revoke() /commit() / rollback()</p>
-<pre><code>  -- 创建数据库srs（学生选课系统）
-  CREATE DATABASE srs DEFAULT charset utf8;
-  -- 切换到srs数据库
-  use srs;
-
-  -- 创建二维表来承载数据
-  -- 创建学生表tb_student
-  -- 在学生表中学号可以唯一的标记一条学生记录
-  -- 我们通常称这样的列为主键列
-  CREATE TABLE tb_student
-  (
-  stuid INT NOT NULL COMMENT &apos;学号&apos;, -- 非空约束
-  stuname VARCHAR(10) NOT NULL  COMMENT &apos;姓名&apos;, -- 变长字符串最大长度10
-  stusex bit DEFAULT 1  COMMENT &apos;性别&apos;, -- 默认是1
-  stubirth date  COMMENT &apos;出生日期&apos;,
-  stuaddr VARCHAR(255)  COMMENT &apos;家庭住址&apos;,
-  PRIMARY KEY (stuid)
-  );
-  -- 修改学生表添加联系方式
-  ALTER TABLE tb_student add COLUMN stutel char(11);
-  -- 修改学生表删除联系方式
-  ALTER TABLE tb_student DROP COLUMN stutel;
-
-  -- 向学生表插入数据
-  INSERT INTO tb_student VALUES (1001,&apos;小花&apos;,1,&apos;1999-9-9&apos;,&apos;四川成都&apos;);
-  INSERT INTO tb_student (stuid,stuname) VALUES
-  (1002,&apos;小猪&apos;);
-
-  INSERT INTO tb_student VALUES
-  (1003,&apos;小小&apos;,0,&apos;1998-2-2&apos;,null),
-  (1004,&apos;小邻&apos;,0,null,null),
-  (1005,&apos;小红&apos;,0,null,&apos;四川成都&apos;);
-
--- 截断表 TRUNCATE TABLE tb_student; -- 删除表格数据
-delete from tb_student WHERE stuid=1002;
-
--- 删除学号1003-1005之间的学生信息
-DELETE FROM tb_student WHERE stuid&gt;=1003 AND stuid&lt;=1005;
-DELETE FROM tb_student WHERE stuid IN (1003,1004,1005);
-DELETE FROM tb_student WHERE stuid BETWEEN 1003 AND 1005;
-
--- 更新学号为1002 和1004学生的生日
-UPDATE tb_student SET stubirth=&apos;1990-1-1&apos; WHERE stuid=1002 OR     stuid=1004;
--- 更新学号1002的姓名，性别，住址
-UPDATE tb_student SET stuname=&apos;王小梅&apos;,stusex=0,stuaddr=&apos;重庆&apos;     WHERE stuid=1002;
-
--- 更新住址为空值的添加住址
--- 判断是否为空 is / is not
-UPDATE tb_student SET stuaddr=&apos;四川绵阳&apos; WHERE stuaddr is null;
-
--- 查询
--- 筛选
-SELECT * FROM tb_student;
--- 加了where叫筛选
-SELECT * FROM tb_student WHERE stusex=0;
--- 投影
-SELECT stuname,stubirth FROM tb_student WHERE stusex=1;
-</code></pre>
+<h5 id="Docker-提供虚拟化服务，创建虚拟化容器并安装软件"><a href="#Docker-提供虚拟化服务，创建虚拟化容器并安装软件" class="headerlink" title="Docker - 提供虚拟化服务，创建虚拟化容器并安装软件"></a>Docker - 提供虚拟化服务，创建虚拟化容器并安装软件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">安装命令：yum -y install docker-io</span><br><span class="line">删除命令：yum -y remove docker-io</span><br><span class="line">查看信息：yum info</span><br><span class="line">查询：yum search</span><br><span class="line">查看是否安装：yum list installed | grep docker</span><br></pre></td></tr></table></figure>
+<h5 id="启动Docker服务"><a href="#启动Docker服务" class="headerlink" title="启动Docker服务"></a>启动Docker服务</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">开启命令：systemctl start docker</span><br><span class="line">关闭：systemctl stop docker</span><br><span class="line">重启：systemctl restart docker</span><br><span class="line">查看状态：systemctl status docker</span><br><span class="line">开机自启：systemctl enable docker</span><br><span class="line">禁用开机自启：systemctl disable docker</span><br></pre></td></tr></table></figure>
+<h4 id="使用Docker命令"><a href="#使用Docker命令" class="headerlink" title="使用Docker命令"></a>使用Docker命令</h4><h6 id="1-查看已经下载的镜像文件（安装包）："><a href="#1-查看已经下载的镜像文件（安装包）：" class="headerlink" title="1. 查看已经下载的镜像文件（安装包）："></a>1. 查看已经下载的镜像文件（安装包）：</h6><pre><code>docker images
+</code></pre><h6 id="2-下载MySQL的镜像文件："><a href="#2-下载MySQL的镜像文件：" class="headerlink" title="2.下载MySQL的镜像文件："></a>2.下载MySQL的镜像文件：</h6><pre><code>docker pull mysql：5.7
+</code></pre><p>MySQL数据库超级管理员账号 - root<br>Oracle数据库超级管理员账号 - sys<br>SQLServer数据库超级管理员账号 - sa</p>
+<h6 id="3-创建并允许容器"><a href="#3-创建并允许容器" class="headerlink" title="3.创建并允许容器"></a>3.创建并允许容器</h6><pre><code>docker run -d -p 3306:3306 --name mysql57 -e MYSQL_ROOT_PASSWORD=123456 mysql:5.7
+</code></pre><h6 id="4-查看运行中的容器"><a href="#4-查看运行中的容器" class="headerlink" title="4.查看运行中的容器"></a>4.查看运行中的容器</h6><pre><code>docker ps
+</code></pre><p>安装MySQ客户端工具：<br>Navicat for MySQL -猫<br>SQLyog - 海豚<br>Toad for MySQL - 蛤蟆</p>
+<h6 id="5-查看所有的容器"><a href="#5-查看所有的容器" class="headerlink" title="5.查看所有的容器"></a>5.查看所有的容器</h6><pre><code>docker container ls -a
+</code></pre><h6 id="6-启动"><a href="#6-启动" class="headerlink" title="6.启动"></a>6.启动</h6><pre><code>docker start mysql57
+</code></pre><h6 id="7-停止"><a href="#7-停止" class="headerlink" title="7.停止"></a>7.停止</h6><pre><code>docker stop mysql57
+</code></pre><h6 id="8-删除容器"><a href="#8-删除容器" class="headerlink" title="8.删除容器"></a>8.删除容器</h6><pre><code>docker rm -f mysql57
+</code></pre><h1 id="MySQL语法"><a href="#MySQL语法" class="headerlink" title="MySQL语法"></a>MySQL语法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">  -- SQL(结构化查询语言)分为三组</span><br><span class="line">  -- 1.DDL （数据定义语言）：create（创建） / drop（删除） /alter（修改）</span><br><span class="line">  -- 2.DML（数据操作语言）“insert（插入）/ delete（删除）/update（更新）/select（查询数据）</span><br><span class="line">  -- 3.DCL（数据控制语言）：grant(授权)/ revoke() /commit() / rollback()</span><br><span class="line"></span><br><span class="line">  -- 创建数据库srs（学生选课系统）</span><br><span class="line">  CREATE DATABASE srs DEFAULT charset utf8;</span><br><span class="line">  -- 切换到srs数据库</span><br><span class="line">  use srs;</span><br><span class="line"></span><br><span class="line">  -- 创建二维表来承载数据</span><br><span class="line">  -- 创建学生表tb_student</span><br><span class="line">  -- 在学生表中学号可以唯一的标记一条学生记录</span><br><span class="line">  -- 我们通常称这样的列为主键列</span><br><span class="line">  CREATE TABLE tb_student</span><br><span class="line">  (</span><br><span class="line">  stuid INT NOT NULL COMMENT &apos;学号&apos;, -- 非空约束</span><br><span class="line">  stuname VARCHAR(10) NOT NULL  COMMENT &apos;姓名&apos;, -- 变长字符串最大长度10</span><br><span class="line">  stusex bit DEFAULT 1  COMMENT &apos;性别&apos;, -- 默认是1</span><br><span class="line">  stubirth date  COMMENT &apos;出生日期&apos;,</span><br><span class="line">  stuaddr VARCHAR(255)  COMMENT &apos;家庭住址&apos;,</span><br><span class="line">  PRIMARY KEY (stuid)</span><br><span class="line">  );</span><br><span class="line">  -- 修改学生表添加联系方式</span><br><span class="line">  ALTER TABLE tb_student add COLUMN stutel char(11);</span><br><span class="line">  -- 修改学生表删除联系方式</span><br><span class="line">  ALTER TABLE tb_student DROP COLUMN stutel;</span><br><span class="line"></span><br><span class="line">  -- 向学生表插入数据</span><br><span class="line">  INSERT INTO tb_student VALUES (1001,&apos;小花&apos;,1,&apos;1999-9-9&apos;,&apos;四川成都&apos;);</span><br><span class="line">  INSERT INTO tb_student (stuid,stuname) VALUES</span><br><span class="line">  (1002,&apos;小猪&apos;);</span><br><span class="line"></span><br><span class="line">  INSERT INTO tb_student VALUES</span><br><span class="line">  (1003,&apos;小小&apos;,0,&apos;1998-2-2&apos;,null),</span><br><span class="line">  (1004,&apos;小邻&apos;,0,null,null),</span><br><span class="line">  (1005,&apos;小红&apos;,0,null,&apos;四川成都&apos;);</span><br><span class="line"></span><br><span class="line">-- 截断表 TRUNCATE TABLE tb_student; -- 删除表格数据</span><br><span class="line">delete from tb_student WHERE stuid=1002;</span><br><span class="line"></span><br><span class="line">-- 删除学号1003-1005之间的学生信息</span><br><span class="line">DELETE FROM tb_student WHERE stuid&gt;=1003 AND stuid&lt;=1005;</span><br><span class="line">DELETE FROM tb_student WHERE stuid IN (1003,1004,1005);</span><br><span class="line">DELETE FROM tb_student WHERE stuid BETWEEN 1003 AND 1005;</span><br><span class="line"></span><br><span class="line">-- 更新学号为1002 和1004学生的生日</span><br><span class="line">UPDATE tb_student SET stubirth=&apos;1990-1-1&apos; WHERE stuid=1002 OR 	stuid=1004;</span><br><span class="line">-- 更新学号1002的姓名，性别，住址</span><br><span class="line">UPDATE tb_student SET stuname=&apos;王小梅&apos;,stusex=0,stuaddr=&apos;重庆&apos; 	WHERE stuid=1002;</span><br><span class="line"></span><br><span class="line">-- 更新住址为空值的添加住址</span><br><span class="line">-- 判断是否为空 is / is not</span><br><span class="line">UPDATE tb_student SET stuaddr=&apos;四川绵阳&apos; WHERE stuaddr is null;</span><br><span class="line"></span><br><span class="line">-- 查询</span><br><span class="line">-- 筛选</span><br><span class="line">SELECT * FROM tb_student;</span><br><span class="line">-- 加了where叫筛选</span><br><span class="line">SELECT * FROM tb_student WHERE stusex=0;</span><br><span class="line">-- 投影</span><br><span class="line">SELECT stuname,stubirth FROM tb_student WHERE stusex=1;</span><br></pre></td></tr></table></figure>
     </div>
 </article>
 
@@ -436,9 +385,9 @@ SELECT stuname,stubirth FROM tb_student WHERE stusex=1;
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/数据库介绍/" style="font-size: 16.375867096156263px;" class="tag-cloud-link">数据库介绍</a>
+    <a href="/tags/数据库介绍/" style="font-size: 17.421829354983174px;" class="tag-cloud-link">数据库介绍</a>
     
-    <a href="/tags/MySQL语法/" style="font-size: 11.746053951024736px;" class="tag-cloud-link">MySQL语法</a>
+    <a href="/tags/MySQL语法/" style="font-size: 15.205191320410492px;" class="tag-cloud-link">MySQL语法</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
