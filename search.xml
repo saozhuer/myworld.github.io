@@ -4,6 +4,9 @@
     <title><![CDATA[Redis]]></title>
     <url>%2Fpost%2Fredis%2F</url>
     <content type="text"><![CDATA[Redis 命令参考详情Redis 命令参考jobs – 查看后台进程bg %进程编号 – 将后台程序运行起来fg %进程编号 – 将后台程序放在前台运行redis-server &amp; – 直接将程序放在后台运行在前台程序中使用CTRL+Z 将前台程序放在后台 但是是暂停状态 运行则使用bg %进程编号 redis-server –requirepass 123456 –appendonly yes &gt; redis.log 2&gt; redis-error.log &amp;–启动服务器 redis 提供了两种持久化数据的方案：1.RDB - 默认开启2.AOF - 默认关闭 –appendonly yes –requirepass password – 设置密码 –appendonly yes – 配置数据持久化 AOF手动 – port 端口号 – 修改端口 kv储存系统 - REmote DIctionary Server 提供高速缓存服务 - 缓存热点数据（访问量大数据量不大） 缓解数据库压力（高频访问数据不用直接访问数据库） redis-cli -h 120.77.87.226 -p 6379 连接redisauth 密码 - 验证身份ping - 心跳事件set 舰队对-添加键值对get 键 - 查看键对应的值expire 键 时间（秒） – 设置超时时间ttl 键 - 查看剩余时间del 键 –删除键值对keys - 查看键值对 exists key [key …] -判断键是否存在 1存在 0 不存在flushdb-清空当前数据库的键值对flushall - 清除所有数据库中的所有键值对 select index 切换数据库 最多16个dbsize - 查看键值对的数量 save / bgsave - 保存数据 / 后台保存数据shutdown - 关闭服务器quit 退出]]></content>
+      <categories>
+        <category>Redis数据库</category>
+      </categories>
       <tags>
         <tag>命令参考</tag>
       </tags>
