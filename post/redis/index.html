@@ -10,7 +10,7 @@
     
     
     
-    <title>关于我 | saozhuerのblog</title>
+    <title>saozhuerのblog</title>
     <link href="”http://yoursite.com“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -154,7 +154,7 @@
                 
                 
                 
-                <li class="current">
+                <li class="">
                     <a href="/about">
                         <i class="fa fa-user"></i>关于我
                     </a>
@@ -169,21 +169,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
-
-
+                    
 <article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://yoursite.com">saozhuerのblog</a>
+        >
+        <span></span>
+    </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/about/index.html">关于我</a>
+                <a href="/post/redis/"></a>
             </h1>
         </div>
         <div class="tag-article">
+            
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2018-12-21
+                <i class="fa fa-calendar"></i> 2018-12-27
             </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -191,16 +197,28 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/about/index.html">关于我</a>
+                    <a href="/post/redis/"></a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2018-12-21
+                <i class="fa fa-calendar"></i> 2018-12-27
+            </p>
+            <p>
+                
+                
             </p>
         </center>
     </div>
     <div class="content-article">
-        <p>你在看你吗呢！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！</p>
+        <hr>
+<h2 id="title-Redis"><a href="#title-Redis" class="headerlink" title="title:Redis"></a>title:Redis</h2><h1 id="Redis-命令参考"><a href="#Redis-命令参考" class="headerlink" title="Redis 命令参考"></a>Redis 命令参考</h1><p>详情<a href="http://redisdoc.com/" target="_blank" rel="noopener">Redis 命令参考</a><br>jobs – 查看后台进程<br>bg  %进程编号 – 将后台程序运行起来<br>fg %进程编号 – 将后台程序放在前台运行<br>redis-server &amp; – 直接将程序放在后台运行<br>在前台程序中使用CTRL+Z 将前台程序放在后台 但是是暂停状态 运行则使用bg %进程编号</p>
+<a id="more"></a>
+<p>redis-server –requirepass 123456 –appendonly yes &gt; redis.log 2&gt; redis-error.log &amp;<br>–启动服务器</p>
+<p>redis 提供了两种持久化数据的方案：<br>1.RDB - 默认开启<br>2.AOF - 默认关闭 –appendonly yes<br>–requirepass 123456 – 设置密码<br> –appendonly yes – 配置数据持久化 AOF手动<br> – port 端口号 – 修改端口<br> kv储存系统 - REmote DIctionary Server<br> 提供高速缓存服务 - 缓存热点数据（访问量大数据量不大）<br> 缓解数据库压力（高频访问数据不用直接访问数据库）</p>
+<p>redis-cli -h 120.77.87.226 -p 6379  连接redis<br>auth 密码 - 验证身份<br>ping - 心跳事件<br>set 舰队对-添加键值对<br>get 键 - 查看键对应的值<br>expire 键  时间（秒） – 设置超时时间<br>ttl 键 - 查看剩余时间<br>del 键 –删除键值对<br>keys - 查看键值对</p>
+<p>exists key [key …] -判断键是否存在  1存在 0 不存在<br>flushdb-清空当前数据库的键值对<br>flushall - 清除所有数据库中的所有键值对</p>
+<p>select index 切换数据库 最多16个<br>dbsize - 查看键值对的数量</p>
+<p>save / bgsave - 保存数据 / 后台保存数据<br>shutdown - 关闭服务器<br>quit 退出</p>
 
     </div>
 </article>
@@ -211,10 +229,9 @@
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = '关于我'
+      window.commentConfig.title = ''
     }
 </script>
-
 
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
@@ -353,21 +370,21 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/about/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/post/redis/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/about/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/post/redis/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/about/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/post/redis/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/数据库介绍/" style="font-size: 11.593494241102812px;" class="tag-cloud-link">数据库介绍</a>
+    <a href="/tags/数据库介绍/" style="font-size: 10.55560328905166px;" class="tag-cloud-link">数据库介绍</a>
     
-    <a href="/tags/MySQL语法/" style="font-size: 18.741451210302884px;" class="tag-cloud-link">MySQL语法</a>
+    <a href="/tags/MySQL语法/" style="font-size: 13.337694382410657px;" class="tag-cloud-link">MySQL语法</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
@@ -476,7 +493,7 @@
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Fri Dec 21 2018 12:06:03 GMT+0800'
+      window.commentConfig.id = 'Thu Dec 27 2018 17:06:11 GMT+0800'
       window.commentConfig.owner = 'saozhuer'
       window.commentConfig.repo = 'saozhuer/saozhuer.github.io'
       window.commentConfig.client_id = 'CE5ee354173480e8abf8'
@@ -484,7 +501,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Fri Dec 21 2018 12:06:03 GMT+0800',
+      	id: 'Thu Dec 27 2018 17:06:11 GMT+0800',
         owner: 'saozhuer',
         repo: 'saozhuer/saozhuer.github.io',
         client_id: 'CE5ee354173480e8abf8',
