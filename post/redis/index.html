@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="saozhuerのblog">
 <meta property="og:description" content="Redis 命令参考详情Redis 命令参考jobs – 查看后台进程bg  %进程编号 – 将后台程序运行起来fg %进程编号 – 将后台程序放在前台运行redis-server &amp;amp; – 直接将程序放在后台运行在前台程序中使用CTRL+Z 将前台程序放在后台 但是是暂停状态 运行则使用bg %进程编号 redis-server –requirepass 123456 –appendonl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-27T13:12:03.101Z">
+<meta property="og:updated_time" content="2018-12-28T02:32:45.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis">
 <meta name="twitter:description" content="Redis 命令参考详情Redis 命令参考jobs – 查看后台进程bg  %进程编号 – 将后台程序运行起来fg %进程编号 – 将后台程序放在前台运行redis-server &amp;amp; – 直接将程序放在后台运行在前台程序中使用CTRL+Z 将前台程序放在后台 但是是暂停状态 运行则使用bg %进程编号 redis-server –requirepass 123456 –appendonl">
@@ -360,6 +360,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/post/redis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/post/redis/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -393,7 +403,9 @@
 <p>exists key [key …] -判断键是否存在  1存在 0 不存在<br>flushdb-清空当前数据库的键值对<br>flushall - 清除所有数据库中的所有键值对</p>
 <p>select index 切换数据库 最多16个<br>dbsize - 查看键值对的数量</p>
 <p>save / bgsave - 保存数据 / 后台保存数据<br>shutdown - 关闭服务器<br>quit 退出</p>
-
+<p>经典数据储存结构</p>
+<p>栈（stack） - FILO - 先进后出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def f(num):</span><br><span class="line"></span><br><span class="line">	if num in (0,1):</span><br><span class="line"></span><br><span class="line">		return 1</span><br><span class="line"></span><br><span class="line">	return num*f(num-1)</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -460,6 +472,9 @@
 
           
 
+  
+    <div class="comments" id="comments">
+    </div>
   
 
 
@@ -542,6 +557,22 @@
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/saozhuer" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="1025223515@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-email"></i>E-Mail</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -760,6 +791,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'H7mqQxlfijYQumgaCVXFRcUS-gzGzoHsz',
+        appKey: 'b5vHe9cuTSfhvCwb9ugshdTU',
+        placeholder: '各位道友，请举手发言',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
