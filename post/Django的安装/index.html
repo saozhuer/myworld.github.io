@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="安装virtualenv （创建虚拟环境）进入cmd1pip install virtualenv 创建虚拟环境12virtualenv --no-site-packages -p python版本路径python.exe djenvdjenv  创建文件的名字 ``` :E:\指定python版本的路径\python.exe12345```--no-site-packages```: 纯净环境#">
+<meta name="description" content="安装virtualenv （创建虚拟环境） 首先安装虚拟环境进入cmd的python中1pip install virtualenv   创建虚拟环境12virtualenv --no-site-packages -p python版本路径python.exe djenvdjenv  创建文件的名字 ``` :E:\指定python版本的路径\python.exe12345```--no-site">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Django安装">
 <meta property="og:url" content="http://yoursite.com/post/Django的安装/index.html">
 <meta property="og:site_name" content="saozhuerのblog">
-<meta property="og:description" content="安装virtualenv （创建虚拟环境）进入cmd1pip install virtualenv 创建虚拟环境12virtualenv --no-site-packages -p python版本路径python.exe djenvdjenv  创建文件的名字 ``` :E:\指定python版本的路径\python.exe12345```--no-site-packages```: 纯净环境#">
+<meta property="og:description" content="安装virtualenv （创建虚拟环境） 首先安装虚拟环境进入cmd的python中1pip install virtualenv   创建虚拟环境12virtualenv --no-site-packages -p python版本路径python.exe djenvdjenv  创建文件的名字 ``` :E:\指定python版本的路径\python.exe12345```--no-site">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-05T06:18:20.791Z">
+<meta property="og:updated_time" content="2019-01-22T11:50:23.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django安装">
-<meta name="twitter:description" content="安装virtualenv （创建虚拟环境）进入cmd1pip install virtualenv 创建虚拟环境12virtualenv --no-site-packages -p python版本路径python.exe djenvdjenv  创建文件的名字 ``` :E:\指定python版本的路径\python.exe12345```--no-site-packages```: 纯净环境#">
+<meta name="twitter:description" content="安装virtualenv （创建虚拟环境） 首先安装虚拟环境进入cmd的python中1pip install virtualenv   创建虚拟环境12virtualenv --no-site-packages -p python版本路径python.exe djenvdjenv  创建文件的名字 ``` :E:\指定python版本的路径\python.exe12345```--no-site">
 
 
 
@@ -394,20 +394,26 @@
       
 
       
-        <h5 id="安装virtualenv-（创建虚拟环境）"><a href="#安装virtualenv-（创建虚拟环境）" class="headerlink" title="安装virtualenv （创建虚拟环境）"></a>安装virtualenv （创建虚拟环境）</h5><p>进入cmd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure></p>
+        <h5 id="安装virtualenv-（创建虚拟环境）"><a href="#安装virtualenv-（创建虚拟环境）" class="headerlink" title="安装virtualenv （创建虚拟环境）"></a>安装virtualenv （创建虚拟环境）</h5><ul>
+<li>首先安装虚拟环境<br>进入cmd的python中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <h6 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">virtualenv --no-site-packages -p python版本路径python.exe djenv</span><br><span class="line">djenv  创建文件的名字</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><figcaption><span>``` :E:\指定python版本的路径\python.exe</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">```--no-site-packages```: 纯净环境</span><br><span class="line"></span><br><span class="line">###### 激活虚拟环境</span><br><span class="line"></span><br><span class="line">- windows进入Scripts目录直接执行activate命令</span><br></pre></td></tr></table></figure>
 <p>E:\python1808\env\djenv\Scripts&gt;activate<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- mac/Linux/Ubuntu进入bin目录：执行source cativate命令</span><br></pre></td></tr></table></figure></p>
-<p> 激活效果(路径前有创建的虚拟环境名称)：(djenv) E:\python1808\env\djenv\Scripts&gt;<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">###### 退出虚拟环境 deactivate</span><br><span class="line"></span><br><span class="line">##### pip的使用</span><br><span class="line"></span><br><span class="line">在虚拟环境中进行</span><br><span class="line"></span><br><span class="line">pip list ：查看安装的库</span><br><span class="line"></span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/14827759-529d3b36960dcb3e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pip install xxxx ：安装xxxx</span><br><span class="line"></span><br><span class="line">##### 创建django项目</span><br><span class="line"></span><br><span class="line">​```django-admin startproject day01</span><br></pre></td></tr></table></figure></p>
-<h5 id="创建应用"><a href="#创建应用" class="headerlink" title="创建应用"></a>创建应用</h5><p>1.<code>python manage.py startapp 应用名（随便）</code></p>
-<p>2.在settings.py文件中的INSTALLED_APPS中添加应用的文件名</p>
-<p>3.在新建的应用文件夹下的models.py文件中创建表格类（相应的数据写在类中）</p>
-<h5 id="MVT模型"><a href="#MVT模型" class="headerlink" title="MVT模型:"></a>MVT模型:</h5><p>M:models.py 模型层 -定义模型和数据库中的表之间的关联关系<br>V:views.py 视图层 -写业务逻辑的地方<br>T：templates  模板 - 定义页面HTML的地方</p>
-<p>MVT模式是有MVC模式演变而来。<br>MVC模式是所有框架遵循的模式<br>M:模型层<br>V：模板，HEML页面<br>C：controller，控制器，写业务逻辑的地方</p>
-<h5 id="迁移表格"><a href="#迁移表格" class="headerlink" title="迁移表格"></a>迁移表格</h5><p>第一次<code>python manage.py migrate</code>- 将Ddjango表格迁移到数据库</p>
-<p>添加或者修改后</p>
-<p>先<code>python manage.py makemigrations</code>- 生成迁移文件</p>
-<p>再<code>python manage.py migrate</code>将修改后的内容迁移到数据库</p>
+<p> 激活效果(路径前有创建的虚拟环境名称)：(djenv) E:\python1808\env\djenv\Scripts&gt;<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">###### 退出虚拟环境 deactivate</span><br><span class="line"></span><br><span class="line">以下在pycham中的Terminal中运行</span><br><span class="line"></span><br><span class="line">##### pip的使用</span><br><span class="line"></span><br><span class="line">首先确认是否在虚拟环境中进行</span><br><span class="line"></span><br><span class="line">pip --version   检查pip版本</span><br><span class="line"></span><br><span class="line">更新pip</span><br></pre></td></tr></table></figure></p>
+<p>python -m pip install -U pip<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pip list ：查看安装的库</span><br><span class="line"></span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/14827759-529d3b36960dcb3e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pip install xxxx ：安装xxxx</span><br><span class="line"></span><br><span class="line">查看有没有冲突的依赖库</span><br></pre></td></tr></table></figure></p>
+<p>pip check<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">检查安装了那些三方库和库的版本</span><br></pre></td></tr></table></figure></p>
+<p>pip freeze<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将安装过的库重定向到requirement.txt中</span><br></pre></td></tr></table></figure></p>
+<p>pip freeze &gt; requirement.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">代码到新环境中只需要```pip install -r requirement.txt```即可安装与之前环境一样的库</span><br><span class="line"></span><br><span class="line">##### 创建django项目</span><br><span class="line"></span><br><span class="line">​```django-admin startproject day01</span><br></pre></td></tr></table></figure></p>
+<h5 id="创建应用"><a href="#创建应用" class="headerlink" title="创建应用"></a>创建应用</h5><p>1.<figure class="highlight python"><figcaption><span>manage.py startapp 应用名（随便）```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">2.</span>在settings.py文件中的INSTALLED_APPS中添加应用的文件名</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>在新建的应用文件夹下的models.py文件中创建表格类（相应的数据写在类中）</span><br><span class="line"></span><br><span class="line"><span class="comment">##### MVT模型:</span></span><br><span class="line"></span><br><span class="line">M:models.py 模型层 -定义模型和数据库中的表之间的关联关系</span><br><span class="line">V:views.py 视图层 -写业务逻辑的地方</span><br><span class="line">T：templates  模板 - 定义页面HTML的地方</span><br><span class="line"></span><br><span class="line">MVT模式是有MVC模式演变而来。</span><br><span class="line">MVC模式是所有框架遵循的模式</span><br><span class="line">M:模型层</span><br><span class="line">V：模板，HEML页面</span><br><span class="line">C：controller，控制器，写业务逻辑的地方</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">##### 迁移表格</span></span><br><span class="line"></span><br><span class="line">第一次```python manage.py migrate```- 将Ddjango表格迁移到数据库</span><br><span class="line"></span><br><span class="line">添加或者修改后</span><br><span class="line"></span><br><span class="line">先```python manage.py makemigrations```- 生成迁移文件</span><br><span class="line"></span><br><span class="line">再```python manage.py migrate```将修改后的内容迁移到数据库</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">##### 运行项目</span></span><br></pre></td></tr></table></figure></p>
+<p>python manage.py runserver<br>默认ip 127.0.0.1<br>默认端口 8000</p>
+<p>修改ip和端口<br>python manage.py runserver  0.0.0.0:80<br>ip为0.0.0.0 表示任何人可以通过公网ip访问自己django的项目<br>端口port：如果设置为80，表示访问时该端口可以不用写，直接访问公网ip地址<br>单独修改端口 python manage.py runserver 端口号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##### 配置Django</span><br><span class="line">打开 项目文件夹中的settings.py文件，</span><br><span class="line">修改106行语言设置 LANGUAGE_CODE = &apos;zh-hans&apos;</span><br><span class="line">修改时区 TIME_ZONE = &apos;Asia/Chongqing&apos;</span><br><span class="line"></span><br><span class="line">修改数据库连接（打开 hellodjango文件夹中的settings.py文件）</span><br></pre></td></tr></table></figure></p>
+<p>#名字大写<br>DATABASES = {<br>    ‘default’: {<br>        ‘ENGINE’: ‘django.db.backends.mysql’,<br>        ‘NAME’: ‘HRS’, #数据库名称（区分大小写）<br>        ‘HOST’: ‘localhost’,#本地或者阿里云<br>        ‘PORT’:3306,<br>        ‘USER’:’root’,<br>        ‘PASSWORD’:’123456’,<br>        ‘TIME_ZONE’:’Asia/Chongqing’ #时区设置（必要）</p>
+<pre><code>}
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">###### 连接数据库</span><br><span class="line">修改当前目录下 _ _ init _ _ 配置文件</span><br><span class="line">添加以下内容</span><br></pre></td></tr></table></figure></p>
+<p>import pymysql #没有pymql的需要安装 pip install pymysql</p>
+<p>pymysql.install_as_MySQLdb()<br><code>`</code></p>
 
       
     </div>
@@ -432,8 +438,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/post/redis/" rel="next" title="Redis">
-                <i class="fa fa-chevron-left"></i> Redis
+              <a href="/post/Django框架/" rel="next" title="Django框架">
+                <i class="fa fa-chevron-left"></i> Django框架
               </a>
             
           </div>
@@ -547,7 +553,7 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
+                <a href="/name/index.html">
                   <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
@@ -597,7 +603,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装virtualenv-（创建虚拟环境）"><span class="nav-number">1.</span> <span class="nav-text">安装virtualenv （创建虚拟环境）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#创建虚拟环境"><span class="nav-number">1.1.</span> <span class="nav-text">创建虚拟环境</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建应用"><span class="nav-number">2.</span> <span class="nav-text">创建应用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MVT模型"><span class="nav-number">3.</span> <span class="nav-text">MVT模型:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#迁移表格"><span class="nav-number">4.</span> <span class="nav-text">迁移表格</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装virtualenv-（创建虚拟环境）"><span class="nav-number">1.</span> <span class="nav-text">安装virtualenv （创建虚拟环境）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#创建虚拟环境"><span class="nav-number">1.1.</span> <span class="nav-text">创建虚拟环境</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建应用"><span class="nav-number">2.</span> <span class="nav-text">创建应用</span></a></li></ol></div>
             
 
           </div>

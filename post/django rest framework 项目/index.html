@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/huxi.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/huxi.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="django rest framework 项目使用目的：提供前后端分离的架构模式。  1.提供了定义序列化器Serializer的方法,可以快速根据Django ORM 或者其他库自动序列化/反序列化2.提供了丰富的类视图扩展类,简化视图的编写3.丰富的定制层级:函数视图\类视图\结合到自动生成API,满足各种需要4.多种身份认证和权限认证方式的支持5.直观的API web界面 安装依赖包 12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django REST framework">
+<meta property="og:url" content="http://yoursite.com/post/django rest framework 项目/index.html">
+<meta property="og:site_name" content="saozhuerのblog">
+<meta property="og:description" content="django rest framework 项目使用目的：提供前后端分离的架构模式。  1.提供了定义序列化器Serializer的方法,可以快速根据Django ORM 或者其他库自动序列化/反序列化2.提供了丰富的类视图扩展类,简化视图的编写3.丰富的定制层级:函数视图\类视图\结合到自动生成API,满足各种需要4.多种身份认证和权限认证方式的支持5.直观的API web界面 安装依赖包 12">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-02T01:52:22.849Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django REST framework">
+<meta name="twitter:description" content="django rest framework 项目使用目的：提供前后端分离的架构模式。  1.提供了定义序列化器Serializer的方法,可以快速根据Django ORM 或者其他库自动序列化/反序列化2.提供了丰富的类视图扩展类,简化视图的编写3.丰富的定制层级:函数视图\类视图\结合到自动生成API,满足各种需要4.多种身份认证和权限认证方式的支持5.直观的API web界面 安装依赖包 12">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":18,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/post/django rest framework 项目/">
+
+
+
+
+
+  <title>Django REST framework | saozhuerのblog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">saozhuerのblog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">saozhuer</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-主页"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/aboutme.md" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-关于我"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-标签"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-分类"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-归档"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/django rest framework 项目/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="saozhuer">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/xuexiaoban.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="saozhuerのblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Django REST framework</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-08T21:18:25+08:00">
+                2019-01-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/post/django rest framework 项目/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/post/django rest framework 项目/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+
+      
+      
+
+      
+        <h3 id="django-rest-framework-项目"><a href="#django-rest-framework-项目" class="headerlink" title="django rest framework 项目"></a>django rest framework 项目</h3><p>使用目的：提供前后端分离的架构模式。 </p>
+<p>1.提供了定义序列化器Serializer的方法,可以快速根据Django ORM 或者其他库自动序列化/反序列化<br>2.提供了丰富的类视图扩展类,简化视图的编写<br>3.丰富的定制层级:函数视图\类视图\结合到自动生成API,满足各种需要<br>4.多种身份认证和权限认证方式的支持<br>5.直观的API web界面</p>
+<p>安装依赖包</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">pip install djangorestframework</span><br><span class="line"></span><br><span class="line">pip install django</span><br><span class="line"></span><br><span class="line">pip install markdown</span><br><span class="line"></span><br><span class="line">pip install django-filter</span><br><span class="line"></span><br><span class="line">pip install pillow</span><br><span class="line"></span><br><span class="line">pip install pymysql</span><br><span class="line"></span><br><span class="line">pip install mysqlclient</span><br></pre></td></tr></table></figure>
+<p>建立超级用户<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py createsuperuser --email admin@<span class="number">163.</span>com --username admin</span><br></pre></td></tr></table></figure></p>
+<p>Django 项目 settings.py添加</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = (</span><br><span class="line">    ...</span><br><span class="line">    <span class="string">'rest_framework'</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>Django 项目urls.py添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    ...</span><br><span class="line">    url(r&apos;^api-auth/&apos;, include(&apos;rest_framework.urls&apos;))</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p>创建项目和app</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">django-admin startproject shop</span><br><span class="line"></span><br><span class="line">python manage.py startapp users</span><br><span class="line"></span><br><span class="line">python manage.py startapp goods</span><br><span class="line"></span><br><span class="line">python manage.py startapp trade</span><br><span class="line"></span><br><span class="line">python manage.py startapp user_operation</span><br></pre></td></tr></table></figure>
+<p>配置数据库连接 settings.py</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    &apos;default&apos;: &#123;</span><br><span class="line">        &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;,</span><br><span class="line">        &apos;NAME&apos;: &apos;shop&apos;,        #数据库名字</span><br><span class="line">        &apos;USER&apos;: &apos;root&apos;,          #账号</span><br><span class="line">        &apos;PASSWORD&apos;: &apos;Vff123456&apos;,    #密码</span><br><span class="line">        &apos;HOST&apos;: &apos;127.0.0.1&apos;,     #IP</span><br><span class="line">        &apos;PORT&apos;: &apos;3306&apos;,          #端口</span><br><span class="line">        #这里引擎用innodb（默认myisam）</span><br><span class="line">        #因为后面第三方登录时，要求引擎为INNODB</span><br><span class="line">        # &apos;OPTIONS&apos;:&#123;&apos;init_command&apos;: &apos;SET storage_engine=INNODB&apos;&#125;, #这样设置会报错，改为</span><br><span class="line">        &quot;OPTIONS&quot;:&#123;&quot;init_command&quot;:&quot;SET default_storage_engine=INNODB;&quot;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>init</strong>.py添加代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line">pymysql.install_as_MySQLdb()</span><br></pre></td></tr></table></figure>
+<p>users model 设计</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"># users/models.py</span><br><span class="line"></span><br><span class="line">from datetime import datetime</span><br><span class="line">from django.db import models</span><br><span class="line">from django.contrib.auth.models import AbstractUser</span><br><span class="line"></span><br><span class="line">class UserProfile(AbstractUser):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    用户信息</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    GENDER_CHOICES = (</span><br><span class="line">        (&quot;male&quot;, u&quot;男&quot;),</span><br><span class="line">        (&quot;female&quot;, u&quot;女&quot;)</span><br><span class="line">    )</span><br><span class="line">    #用户用手机注册，所以姓名，生日和邮箱可以为空</span><br><span class="line">    name = models.CharField(&quot;姓名&quot;,max_length=30, null=True, blank=True)</span><br><span class="line">    birthday = models.DateField(&quot;出生年月&quot;,null=True, blank=True)</span><br><span class="line">    gender = models.CharField(&quot;性别&quot;,max_length=6, choices=GENDER_CHOICES, default=&quot;female&quot;)</span><br><span class="line">    mobile = models.CharField(&quot;电话&quot;,max_length=11)</span><br><span class="line">    email = models.EmailField(&quot;邮箱&quot;,max_length=100, null=True, blank=True)</span><br><span class="line"></span><br><span class="line">    class Meta:</span><br><span class="line">        verbose_name = &quot;用户信息&quot;</span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    def __str__(self):</span><br><span class="line">        return self.username</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class VerifyCode(models.Model):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    验证码</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    code = models.CharField(&quot;验证码&quot;,max_length=10)</span><br><span class="line">    mobile = models.CharField(&quot;电话&quot;,max_length=11)</span><br><span class="line">    add_time = models.DateTimeField(&quot;添加时间&quot;,default=datetime.now)</span><br><span class="line"></span><br><span class="line">    class Meta:</span><br><span class="line">        verbose_name = &quot;短信验证&quot;</span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    def __str__(self):</span><br><span class="line">        return self.code</span><br></pre></td></tr></table></figure>
+<p>替换系统的用户，还要在settings中配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#settings.py</span><br><span class="line"></span><br><span class="line">#重载系统的用户，让UserProfile生效</span><br><span class="line">AUTH_USER_MODEL = &apos;users.UserProfile&apos;</span><br></pre></td></tr></table></figure>
+<p>设置media保存路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 设置上传文件的路径</span><br><span class="line">MEDIA_URL = &quot;/media/&quot;</span><br><span class="line">MEDIA_ROOT = os.path.join(BASE_DIR,&quot;media&quot;)</span><br></pre></td></tr></table></figure>
+<p>goods model 设计</p>
+<p>商品分类model 设计</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GoodsCategory</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    商品分类</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    CATEGORY_TYPE = (</span><br><span class="line">        (<span class="number">1</span>, <span class="string">"一级类目"</span>),</span><br><span class="line">        (<span class="number">2</span>, <span class="string">"二级类目"</span>),</span><br><span class="line">        (<span class="number">3</span>, <span class="string">"三级类目"</span>),</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    name = models.CharField(<span class="string">'类别名'</span>,default=<span class="string">""</span>, max_length=<span class="number">30</span>,help_text=<span class="string">"类别名"</span>)</span><br><span class="line">    code = models.CharField(<span class="string">"类别code"</span>,default=<span class="string">""</span>, max_length=<span class="number">30</span>,help_text=<span class="string">"类别code"</span>)</span><br><span class="line">    desc = models.TextField(<span class="string">"类别描述"</span>,default=<span class="string">""</span>,help_text=<span class="string">"类别描述"</span>)</span><br><span class="line">    <span class="comment">#目录树级别</span></span><br><span class="line">    category_type = models.IntegerField(<span class="string">"类目级别"</span>,choices=CATEGORY_TYPE,help_text=<span class="string">"类目级别"</span>)</span><br><span class="line">    <span class="comment"># 设置models有一个指向自己的外键</span></span><br><span class="line">    parent_category = models.ForeignKey(<span class="string">"self"</span>, on_delete=models.CASCADE, null=<span class="keyword">True</span>, blank=<span class="keyword">True</span>, verbose_name=<span class="string">"父类目级别"</span>, help_text=<span class="string">"父目录"</span>,</span><br><span class="line">                                        related_name=<span class="string">"sub_cat"</span>)</span><br><span class="line">    is_tab = models.BooleanField(<span class="string">"是否导航"</span>,default=<span class="keyword">False</span>,help_text=<span class="string">"是否导航"</span>)</span><br><span class="line">    add_time = models.DateTimeField(<span class="string">"添加时间"</span>,default=datetime.now)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">"商品类别"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br></pre></td></tr></table></figure>
+<p>商品model设计</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Goods</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    商品</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    category = models.ForeignKey(GoodsCategory, on_delete=models.CASCADE, verbose_name=<span class="string">"商品类目"</span>)</span><br><span class="line">    goods_sn = models.CharField(<span class="string">"商品唯一货号"</span>,max_length=<span class="number">50</span>, default=<span class="string">""</span>)</span><br><span class="line">    name = models.CharField(<span class="string">"商品名"</span>,max_length=<span class="number">100</span>,)</span><br><span class="line">    click_num = models.IntegerField(<span class="string">"点击数"</span>,default=<span class="number">0</span>)</span><br><span class="line">    sold_num = models.IntegerField(<span class="string">"商品销售量"</span>,default=<span class="number">0</span>)</span><br><span class="line">    fav_num = models.IntegerField(<span class="string">"收藏数"</span>,default=<span class="number">0</span>)</span><br><span class="line">    goods_num = models.IntegerField(<span class="string">"库存数"</span>,default=<span class="number">0</span>)</span><br><span class="line">    market_price = models.FloatField(<span class="string">"市场价格"</span>,default=<span class="number">0</span>)</span><br><span class="line">    shop_price = models.FloatField(<span class="string">"本店价格"</span>,default=<span class="number">0</span>)</span><br><span class="line">    goods_brief = models.TextField(<span class="string">"商品简短描述"</span>,max_length=<span class="number">500</span>)</span><br><span class="line">    ship_free = models.BooleanField(<span class="string">"是否承担运费"</span>,default=<span class="keyword">True</span>)</span><br><span class="line">    <span class="comment"># 首页中展示的商品封面图</span></span><br><span class="line">    goods_front_image = models.ImageField(upload_to=<span class="string">"goods/images/"</span>, null=<span class="keyword">True</span>, blank=<span class="keyword">True</span>, verbose_name=<span class="string">"封面图"</span>)</span><br><span class="line">    <span class="comment"># 首页中新品展示</span></span><br><span class="line">    is_new = models.BooleanField(<span class="string">"是否新品"</span>,default=<span class="keyword">False</span>)</span><br><span class="line">    <span class="comment"># 商品详情页的热卖商品，自行设置</span></span><br><span class="line">    is_hot = models.BooleanField(<span class="string">"是否热销"</span>,default=<span class="keyword">False</span>)</span><br><span class="line">    add_time = models.DateTimeField(<span class="string">"添加时间"</span>,default=datetime.now)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">'商品信息'</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GoodsImage</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    商品轮播图</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    goods = models.ForeignKey(Goods, on_delete=models.CASCADE, verbose_name=<span class="string">"商品"</span>, related_name=<span class="string">"images"</span>)</span><br><span class="line">    image = models.ImageField(upload_to=<span class="string">""</span>, verbose_name=<span class="string">"图片"</span>, null=<span class="keyword">True</span>, blank=<span class="keyword">True</span>)</span><br><span class="line">    add_time = models.DateTimeField(<span class="string">"添加时间"</span>, default=datetime.now)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">'商品轮播'</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.goods.name</span><br></pre></td></tr></table></figure>
+<p>首页商品轮播图model设计</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Banner(models.Model):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    首页轮播的商品</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    goods = models.ForeignKey(Goods, on_delete=models.CASCADE, verbose_name=&quot;商品&quot;)</span><br><span class="line">    image = models.ImageField(upload_to=&apos;banner&apos;, verbose_name=&quot;轮播图片&quot;)</span><br><span class="line">    index = models.IntegerField(&quot;轮播顺序&quot;,default=0)</span><br><span class="line">    add_time = models.DateTimeField(&quot;添加时间&quot;, default=datetime.now)</span><br><span class="line"></span><br><span class="line">    class Meta:</span><br><span class="line">        verbose_name = &apos;首页轮播&apos;</span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    def __str__(self):</span><br><span class="line">        return self.goods.name</span><br></pre></td></tr></table></figure>
+<p>商品广告和热搜model</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HotSearchWords</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    搜索栏下方热搜词</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    keywords = models.CharField(<span class="string">"热搜词"</span>,default=<span class="string">""</span>, max_length=<span class="number">20</span>)</span><br><span class="line">    index = models.IntegerField(<span class="string">"排序"</span>,default=<span class="number">0</span>)</span><br><span class="line">    add_time = models.DateTimeField(<span class="string">"添加时间"</span>, default=datetime.now)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">'热搜排行'</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.keywords</span><br></pre></td></tr></table></figure>
+<p>交易的model设计</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># trade/models.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> goods.models <span class="keyword">import</span> Goods</span><br><span class="line"></span><br><span class="line"><span class="comment"># get_user_model方法会去setting中找AUTH_USER_MODEL</span></span><br><span class="line"><span class="keyword">from</span> django.contrib.auth <span class="keyword">import</span> get_user_model</span><br><span class="line">User = get_user_model()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your models here.</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShoppingCart</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    购物车</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=<span class="string">"用户"</span>)</span><br><span class="line">    goods = models.ForeignKey(Goods, on_delete=models.CASCADE, verbose_name=<span class="string">"商品"</span>)</span><br><span class="line">    nums = models.IntegerField(<span class="string">"购买数量"</span>,default=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    add_time = models.DateTimeField(default=datetime.now, verbose_name=<span class="string">"添加时间"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">'购物车'</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line">        unique_together = (<span class="string">"user"</span>, <span class="string">"goods"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"%s(%d)"</span>.format(self.goods.name, self.nums)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OrderInfo</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    订单信息</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    ORDER_STATUS = (</span><br><span class="line">        (<span class="string">"TRADE_SUCCESS"</span>, <span class="string">"成功"</span>),</span><br><span class="line">        (<span class="string">"TRADE_CLOSED"</span>, <span class="string">"超时关闭"</span>),</span><br><span class="line">        (<span class="string">"WAIT_BUYER_PAY"</span>, <span class="string">"交易创建"</span>),</span><br><span class="line">        (<span class="string">"TRADE_FINISHED"</span>, <span class="string">"交易结束"</span>),</span><br><span class="line">        (<span class="string">"paying"</span>, <span class="string">"待支付"</span>),</span><br><span class="line">    )</span><br><span class="line">    PAY_TYPE = (</span><br><span class="line">        (<span class="string">"alipay"</span>, <span class="string">"支付宝"</span>),</span><br><span class="line">        (<span class="string">"wechat"</span>, <span class="string">"微信"</span>),</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=<span class="string">"用户"</span>)</span><br><span class="line">    <span class="comment">#订单号唯一</span></span><br><span class="line">    order_sn = models.CharField(<span class="string">"订单编号"</span>,max_length=<span class="number">30</span>, null=<span class="keyword">True</span>, blank=<span class="keyword">True</span>, unique=<span class="keyword">True</span>)</span><br><span class="line">    <span class="comment"># 微信支付会用到</span></span><br><span class="line">    nonce_str = models.CharField(<span class="string">"随机加密串"</span>,max_length=<span class="number">50</span>, null=<span class="keyword">True</span>, blank=<span class="keyword">True</span>, unique=<span class="keyword">True</span>)</span><br><span class="line">    <span class="comment"># 支付宝交易号</span></span><br><span class="line">    trade_no = models.CharField(<span class="string">"交易号"</span>,max_length=<span class="number">100</span>, unique=<span class="keyword">True</span>, null=<span class="keyword">True</span>, blank=<span class="keyword">True</span>)</span><br><span class="line">    <span class="comment">#支付状态</span></span><br><span class="line">    pay_status = models.CharField(<span class="string">"订单状态"</span>,choices=ORDER_STATUS, default=<span class="string">"paying"</span>, max_length=<span class="number">30</span>)</span><br><span class="line">    <span class="comment"># 订单的支付类型</span></span><br><span class="line">    pay_type = models.CharField(<span class="string">"支付类型"</span>,choices=PAY_TYPE, default=<span class="string">"alipay"</span>, max_length=<span class="number">10</span>)</span><br><span class="line">    post_script = models.CharField(<span class="string">"订单留言"</span>,max_length=<span class="number">200</span>)</span><br><span class="line">    order_mount = models.FloatField(<span class="string">"订单金额"</span>,default=<span class="number">0.0</span>)</span><br><span class="line">    pay_time = models.DateTimeField(<span class="string">"支付时间"</span>,null=<span class="keyword">True</span>, blank=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 用户信息</span></span><br><span class="line">    address = models.CharField(<span class="string">"收货地址"</span>,max_length=<span class="number">100</span>, default=<span class="string">""</span>)</span><br><span class="line">    signer_name = models.CharField(<span class="string">"签收人"</span>,max_length=<span class="number">20</span>, default=<span class="string">""</span>)</span><br><span class="line">    singer_mobile = models.CharField(<span class="string">"联系电话"</span>,max_length=<span class="number">11</span>)</span><br><span class="line"></span><br><span class="line">    add_time = models.DateTimeField(<span class="string">"添加时间"</span>,default=datetime.now)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">"订单信息"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> str(self.order_sn)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OrderGoods</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    订单内的商品详情</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># 一个订单对应多个商品</span></span><br><span class="line">    order = models.ForeignKey(OrderInfo, on_delete=models.CASCADE, verbose_name=<span class="string">"订单信息"</span>, related_name=<span class="string">"goods"</span>)</span><br><span class="line">    <span class="comment"># 两个外键形成一张关联表</span></span><br><span class="line">    goods = models.ForeignKey(Goods, on_delete=models.CASCADE, verbose_name=<span class="string">"商品"</span>)</span><br><span class="line">    goods_num = models.IntegerField(<span class="string">"商品数量"</span>,default=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    add_time = models.DateTimeField(<span class="string">"添加时间"</span>,default=datetime.now)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">"订单商品"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> str(self.order.order_sn)</span><br></pre></td></tr></table></figure>
+<p>用户操作的model设计</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># user_operation/models.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"><span class="keyword">from</span> goods.models <span class="keyword">import</span> Goods</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.contrib.auth <span class="keyword">import</span> get_user_model</span><br><span class="line">User = get_user_model()</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserFav</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    用户收藏操作</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=<span class="string">"用户"</span>)</span><br><span class="line">    goods = models.ForeignKey(Goods, on_delete=models.CASCADE, verbose_name=<span class="string">"商品"</span>, help_text=<span class="string">"商品id"</span>)</span><br><span class="line">    add_time = models.DateTimeField(<span class="string">"添加时间"</span>,default=datetime.now)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">'用户收藏'</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line">        unique_together = (<span class="string">"user"</span>, <span class="string">"goods"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.user.username</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserAddress</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    用户收货地址</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=<span class="string">"用户"</span> )</span><br><span class="line">    province = models.CharField(<span class="string">"省份"</span>,max_length=<span class="number">100</span>, default=<span class="string">""</span>)</span><br><span class="line">    city = models.CharField(<span class="string">"城市"</span>,max_length=<span class="number">100</span>, default=<span class="string">""</span>)</span><br><span class="line">    district = models.CharField(<span class="string">"区域"</span>,max_length=<span class="number">100</span>, default=<span class="string">""</span>)</span><br><span class="line">    address = models.CharField(<span class="string">"详细地址"</span>,max_length=<span class="number">100</span>, default=<span class="string">""</span>)</span><br><span class="line">    signer_name = models.CharField(<span class="string">"签收人"</span>,max_length=<span class="number">100</span>, default=<span class="string">""</span>)</span><br><span class="line">    signer_mobile = models.CharField(<span class="string">"电话"</span>,max_length=<span class="number">11</span>, default=<span class="string">""</span>)</span><br><span class="line">    add_time = models.DateTimeField(<span class="string">"添加时间"</span>,default=datetime.now)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">"收货地址"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.address</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserLeavingMessage</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    用户留言</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    MESSAGE_CHOICES = (</span><br><span class="line">        (<span class="number">1</span>, <span class="string">"留言"</span>),</span><br><span class="line">        (<span class="number">2</span>, <span class="string">"投诉"</span>),</span><br><span class="line">        (<span class="number">3</span>, <span class="string">"询问"</span>),</span><br><span class="line">        (<span class="number">4</span>, <span class="string">"售后"</span>),</span><br><span class="line">        (<span class="number">5</span>, <span class="string">"求购"</span>)</span><br><span class="line">    )</span><br><span class="line">    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=<span class="string">"用户"</span>)</span><br><span class="line">    message_type = models.IntegerField(default=<span class="number">1</span>, choices=MESSAGE_CHOICES, verbose_name=<span class="string">"留言类型"</span>,</span><br><span class="line">                                      help_text=<span class="string">u"留言类型: 1(留言),2(投诉),3(询问),4(售后),5(求购)"</span>)</span><br><span class="line">    subject = models.CharField(<span class="string">"主题"</span>,max_length=<span class="number">100</span>, default=<span class="string">""</span>)</span><br><span class="line">    message = models.TextField(<span class="string">"留言内容"</span>,default=<span class="string">""</span>,help_text=<span class="string">"留言内容"</span>)</span><br><span class="line">    file = models.FileField(upload_to=<span class="string">"message/images/"</span>, verbose_name=<span class="string">"上传的文件"</span>, help_text=<span class="string">"上传的文件"</span>)</span><br><span class="line">    add_time = models.DateTimeField(<span class="string">"添加时间"</span>,default=datetime.now)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">"用户留言"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.subject</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python manage.py makemigrations</span><br><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
+<h2 id="商品列表页"><a href="#商品列表页" class="headerlink" title="商品列表页"></a>商品列表页</h2><h3 id="APIview方式实现商品列表页"><a href="#APIview方式实现商品列表页" class="headerlink" title="APIview方式实现商品列表页"></a>APIview方式实现商品列表页</h3><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install coreapi       # drf的文档支持</span><br><span class="line">pip install django-guardian      # drf对象级别的权限支持</span><br></pre></td></tr></table></figure>
+<p>配置drf文档的url</p>
+<p>shop/urls.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework.documentation <span class="keyword">import</span> include_docs_urls</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    <span class="comment">#drf文档，title自定义</span></span><br><span class="line">    path(<span class="string">'docs'</span>,include_docs_urls(title=<span class="string">'shop api文档'</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>配置rest_framework</p>
+<p>settings.py中添加</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="string">'rest_framework'</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">'api-auth/'</span>,include(<span class="string">'rest_framework.urls'</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>goods文件夹下面新建serializers.py</p>
+<p>用drf的序列化实现商品列表页展示，代码如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># goods/serializers.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> serializers</span><br><span class="line">	</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GoodsSerializer</span><span class="params">(serializers.Serializer)</span>:</span></span><br><span class="line">    name = serializers.CharField(required=<span class="keyword">True</span>,max_length=<span class="number">100</span>)</span><br><span class="line">    click_num = serializers.IntegerField(default=<span class="number">0</span>)</span><br><span class="line">    goods_front_image = serializers.ImageField()</span><br></pre></td></tr></table></figure>
+<p>goods/views.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework.views <span class="keyword">import</span> APIView</span><br><span class="line"><span class="keyword">from</span> goods.serializers <span class="keyword">import</span> GoodsSerializer</span><br><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> Goods</span><br><span class="line"><span class="keyword">from</span> rest_framework.response <span class="keyword">import</span> Response</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GoodsListView</span><span class="params">(APIView)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    商品列表</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self,request,format=None)</span>:</span></span><br><span class="line">        goods = Goods.objects.all()</span><br><span class="line">        goods_serialzer = GoodsSerializer(goods,many=<span class="keyword">True</span>)</span><br><span class="line">        <span class="keyword">return</span> Response(goods_serialzer.data)</span><br></pre></td></tr></table></figure>
+<h3 id="drf的Modelserializer实现商品列表页"><a href="#drf的Modelserializer实现商品列表页" class="headerlink" title="drf的Modelserializer实现商品列表页"></a>drf的Modelserializer实现商品列表页</h3><p>上面是用Serializer实现的，需要自己手动添加字段，如果用Modelserializer，会更加的方便，直接用<strong>all</strong>就可以全部序列化</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># goods/serializers.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> serializers</span><br><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> Goods</span><br><span class="line"></span><br><span class="line"><span class="comment">#Serializer实现商品列表页</span></span><br><span class="line"><span class="comment"># class GoodsSerializer(serializers.Serializer):</span></span><br><span class="line"><span class="comment">#     name = serializers.CharField(required=True,max_length=100)</span></span><br><span class="line"><span class="comment">#     click_num = serializers.IntegerField(default=0)</span></span><br><span class="line"><span class="comment">#     goods_front_image = serializers.ImageField()</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#ModelSerializer实现商品列表页</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GoodsSerializer</span><span class="params">(serializers.ModelSerializer)</span>:</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        model = Goods</span><br><span class="line">        fields = <span class="string">'__all__'</span></span><br></pre></td></tr></table></figure>
+<p>Serialzer还可以嵌套使用，覆盖外键字段</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># goods/serializers.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> serializers</span><br><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> Goods,GoodsCategory</span><br><span class="line"></span><br><span class="line"><span class="comment">#Serializer实现商品列表页</span></span><br><span class="line"><span class="comment"># class GoodsSerializer(serializers.Serializer):</span></span><br><span class="line"><span class="comment">#     name = serializers.CharField(required=True,max_length=100)</span></span><br><span class="line"><span class="comment">#     click_num = serializers.IntegerField(default=0)</span></span><br><span class="line"><span class="comment">#     goods_front_image = serializers.ImageField()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CategorySerializer</span><span class="params">(serializers.ModelSerializer)</span>:</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        model = GoodsCategory</span><br><span class="line">        fields = <span class="string">"__all__"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#ModelSerializer实现商品列表页</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GoodsSerializer</span><span class="params">(serializers.ModelSerializer)</span>:</span></span><br><span class="line">    <span class="comment">#覆盖外键字段</span></span><br><span class="line">    category = CategorySerializer()</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        model = Goods</span><br><span class="line">        fields = <span class="string">'__all__'</span></span><br></pre></td></tr></table></figure>
+<p>GenericAPIView继承APIView，封装了很多方法，比APIView功能更强大</p>
+<p>ListModelMixin里面list方法帮我们做好了分页和序列化的工作</p>
+<p>ListAPIView(mixins.ListModelMixin,GenericAPIView)        继承了这两个类</p>
+<p>写好了get方法，可以简化工作</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> mixins</span><br><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> generics</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GoodsListView</span><span class="params">(generics.ListAPIView)</span>:</span></span><br><span class="line">    <span class="string">'商品列表页'</span></span><br><span class="line">    queryset = Goods.objects.all()</span><br><span class="line">    serializer_class = GoodsSerializer</span><br></pre></td></tr></table></figure>
+<p>添加分页功能，配置如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">REST_FRAMEWORK = &#123;</span><br><span class="line">    <span class="comment">#分页</span></span><br><span class="line">    <span class="string">'DEFAULT_PAGINATION_CLASS'</span>: <span class="string">'rest_framework.pagination.PageNumberPagination'</span>,</span><br><span class="line">    <span class="comment">#每页显示的个数</span></span><br><span class="line">    <span class="string">'PAGE_SIZE'</span>: <span class="number">10</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://127.0.0.1:8000/goods/?page=2" target="_blank" rel="noopener">http://127.0.0.1:8000/goods/?page=2</a></p>
+<p><strong>自定义分页功能</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework.pagination <span class="keyword">import</span> PageNumberPagination</span><br><span class="line"></span><br><span class="line">class GoodsPagination(PageNumberPagination):</span><br><span class="line">    <span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">    商品列表自定义分页</span></span><br><span class="line"><span class="string">    '</span><span class="string">''</span></span><br><span class="line">    #默认每页显示的个数</span><br><span class="line">    page_size = <span class="number">5</span></span><br><span class="line">    #可以动态改变每页显示的个数</span><br><span class="line">    page_size_query_param = <span class="string">'page_size'</span></span><br><span class="line">    #页码参数</span><br><span class="line">    page_query_param = <span class="string">'page'</span></span><br><span class="line">    #最多能显示多少页</span><br><span class="line">    max_page_size = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class GoodsListView(generics.ListAPIView):</span><br><span class="line">    <span class="string">'商品列表页'</span></span><br><span class="line"></span><br><span class="line">    pagination_class = GoodsPagination    #分页</span><br><span class="line">    queryset = Goods.objects.all()</span><br><span class="line">    serializer_class = GoodsSerializer</span><br></pre></td></tr></table></figure>
+<p>settings.py里面就不用设置了</p>
+<h3 id="viewsets和router完成商品列表页"><a href="#viewsets和router完成商品列表页" class="headerlink" title="viewsets和router完成商品列表页"></a>viewsets和router完成商品列表页</h3><p>ViewSets和Routers结合使用</p>
+<p>urls.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.conf.urls <span class="keyword">import</span> url, include</span><br><span class="line"><span class="keyword">from</span> goods.views <span class="keyword">import</span> GoodsListViewSet</span><br><span class="line"><span class="keyword">from</span> rest_framework.routers <span class="keyword">import</span> DefaultRouter</span><br><span class="line"></span><br><span class="line">router = DefaultRouter()</span><br><span class="line">router.register(<span class="string">r'goods'</span>, GoodsListViewSet)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Wire up our API using automatic URL routing.</span></span><br><span class="line"><span class="comment"># Additionally, we include login URLs for the browsable API.</span></span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(<span class="string">r'^'</span>, include(router.urls)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>views.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GoodsListViewSet</span><span class="params">(mixins.ListModelMixin,viewsets.GenericViewSet)</span>:</span></span><br><span class="line">    <span class="string">'商品列表页'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 分页</span></span><br><span class="line">    pagination_class = GoodsPagination</span><br><span class="line">    <span class="comment">#这里必须要定义一个默认的排序,否则会报错</span></span><br><span class="line">    queryset = Goods.objects.all().order_by(<span class="string">'id'</span>)</span><br><span class="line">    serializer_class = GoodsSerializer</span><br></pre></td></tr></table></figure>
+<p>GenericViewSet（viewsets）     —-drf</p>
+<p>　　GenericAPIView                  —drf</p>
+<p>　　　　APIView                        —drf</p>
+<p>　　　　　　View　　　　        —-django</p>
+<p>这些view功能的不同，主要的是有mixin的存在</p>
+<p>mixins总共有五种：</p>
+<p>　　CreateModelMixin</p>
+<p>　　ListModelMixin</p>
+<p>　　UpdateModelMixin</p>
+<p>　　RetrieveModelMixin</p>
+<p>　　DestoryModelMixin</p>
+<h3 id="drf的request和response介绍"><a href="#drf的request和response介绍" class="headerlink" title="drf的request和response介绍"></a>drf的request和response介绍</h3><p><code>request.data</code> 返回请求主题的解析内容</p>
+<ul>
+<li>包括所有解析的内容，文件（file） 和 非文件（non-file inputs）。</li>
+<li>支持解析 <code>POST</code> 以外的 HTTP method ， 比如 <code>PUT</code>， <code>PATCH</code>。</li>
+<li>更加灵活，不仅仅支持表单数据，传入同样的 JSON 数据一样可以正确解析，并且不用做额外的处理（意思是前端不管提交的是表单数据，还是 JSON 数据，<code>.data</code> 都能够正确解析）。</li>
+</ul>
+<p>request.query_params<code>等同于</code>request.GET</p>
+<p>response</p>
+<p>由于 <code>Response</code> 类使用的渲染器不能处理复杂的数据类型（比如 Django 的模型实例），所以需要在创建 <code>Response</code> 对象之前将数据序列化为基本的数据类型。</p>
+<h3 id="drf的过滤"><a href="#drf的过滤" class="headerlink" title="drf的过滤"></a>drf的过滤</h3><p><em>添加到app里面</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">     <span class="string">'django_filters'</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>新建filter.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># goods/filters.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> django_filters</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> Goods</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GoodsFilter</span><span class="params">(django_filters.rest_framework.FilterSet)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    商品过滤的类</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="comment">#两个参数，name是要过滤的字段，lookup是执行的行为，‘小与等于本店价格’</span></span><br><span class="line">    price_min = django_filters.NumberFilter(field_name=<span class="string">"shop_price"</span>, lookup_expr=<span class="string">'gte'</span>)</span><br><span class="line">    price_max = django_filters.NumberFilter(field_name=<span class="string">"shop_price"</span>, lookup_expr=<span class="string">'lte'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        model = Goods</span><br><span class="line">        fields = [<span class="string">'price_min'</span>, <span class="string">'price_max'</span>]</span><br></pre></td></tr></table></figure>
+<p>views.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> .filters <span class="keyword">import</span> GoodsFilter</span><br><span class="line"><span class="keyword">from</span> django_filters.rest_framework <span class="keyword">import</span> DjangoFilterBackend</span><br><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> status, mixins, generics, viewsets,filters</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GoodsListViewSet</span><span class="params">(mixins.ListModelMixin,viewsets.GenericViewSet)</span>:</span></span><br><span class="line">    <span class="string">'商品列表页'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#这里必须要定义一个默认的排序,否则会报错</span></span><br><span class="line">    queryset = Goods.objects.all().order_by(<span class="string">'id'</span>)</span><br><span class="line">    <span class="comment"># 分页</span></span><br><span class="line">    pagination_class = GoodsPagination</span><br><span class="line">    serializer_class = GoodsSerializer</span><br><span class="line">    filter_backends = (DjangoFilterBackend,filters.SearchFilter)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 设置filter的类为我们自定义的类</span></span><br><span class="line">    filter_class = GoodsFilter</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#搜索,=name表示精确搜索，也可以使用各种正则表达式</span></span><br><span class="line">    search_fields = (<span class="string">'=name'</span>,<span class="string">'goods_brief'</span>)</span><br></pre></td></tr></table></figure>
+<p><a href="http://127.0.0.1:8000/goods/?page=1&amp;price_min=50&amp;price_max=70" target="_blank" rel="noopener">http://127.0.0.1:8000/goods/?page=1&amp;price_min=50&amp;price_max=70</a></p>
+<p>添加排序功能</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GoodsListViewSet</span><span class="params">(mixins.ListModelMixin,viewsets.GenericViewSet)</span>:</span></span><br><span class="line">    <span class="string">'商品列表页'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#这里必须要定义一个默认的排序,否则会报错</span></span><br><span class="line">    queryset = Goods.objects.all()</span><br><span class="line">    <span class="comment"># 分页</span></span><br><span class="line">    pagination_class = GoodsPagination</span><br><span class="line">    <span class="comment">#序列化</span></span><br><span class="line">    serializer_class = GoodsSerializer</span><br><span class="line">    filter_backends = (DjangoFilterBackend,filters.SearchFilter,filters.OrderingFilter)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 设置filter的类为我们自定义的类</span></span><br><span class="line">    <span class="comment">#过滤</span></span><br><span class="line">    filter_class = GoodsFilter</span><br><span class="line">    <span class="comment">#搜索,=name表示精确搜索，也可以使用各种正则表达式</span></span><br><span class="line">    search_fields = (<span class="string">'=name'</span>,<span class="string">'goods_brief'</span>)</span><br><span class="line">    <span class="comment">#排序</span></span><br><span class="line">    ordering_fields = (<span class="string">'sold_num'</span>, <span class="string">'add_time'</span>)</span><br></pre></td></tr></table></figure>
+<p><a href="http://127.0.0.1:8000/goods/?ordering=sold_num&amp;page=2" target="_blank" rel="noopener">http://127.0.0.1:8000/goods/?ordering=sold_num&amp;page=2</a></p>
+<p><a href="http://127.0.0.1:8000/goods/?ordering=-sold_num&amp;page=2" target="_blank" rel="noopener">http://127.0.0.1:8000/goods/?ordering=-sold_num&amp;page=2</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/Django基础/" rel="next" title="Django基础">
+                <i class="fa fa-chevron-left"></i> Django基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/xuexiaoban.png" alt="saozhuer">
+            
+              <p class="site-author-name" itemprop="name">saozhuer</p>
+              <p class="site-description motion-element" itemprop="description">天若有情天亦老~</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/name/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/saozhuer" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="1025223515@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-email"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#django-rest-framework-项目"><span class="nav-number">1.</span> <span class="nav-text">django rest framework 项目</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#商品列表页"><span class="nav-number"></span> <span class="nav-text">商品列表页</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#APIview方式实现商品列表页"><span class="nav-number">1.</span> <span class="nav-text">APIview方式实现商品列表页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#drf的Modelserializer实现商品列表页"><span class="nav-number">2.</span> <span class="nav-text">drf的Modelserializer实现商品列表页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#viewsets和router完成商品列表页"><span class="nav-number">3.</span> <span class="nav-text">viewsets和router完成商品列表页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#drf的request和response介绍"><span class="nav-number">4.</span> <span class="nav-text">drf的request和response介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#drf的过滤"><span class="nav-number">5.</span> <span class="nav-text">drf的过滤</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">saozhuer</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'H7mqQxlfijYQumgaCVXFRcUS-gzGzoHsz',
+        appKey: 'b5vHe9cuTSfhvCwb9ugshdTU',
+        placeholder: '你的言论将上交国家,请注意文明用言,否则可能被拒收或查水表 ！(✿◡‿◡)  快来呀！ (゜-゜)つロ 干杯~',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/click.js"></script>
